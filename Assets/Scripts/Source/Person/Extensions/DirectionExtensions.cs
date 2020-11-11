@@ -22,6 +22,10 @@ static class DirectionExtensions
         {
             return transform.right;
         }
+        case Direction.Empty:
+        {
+            return new Vector3();
+        }
         default:
         {
             return transform.position;

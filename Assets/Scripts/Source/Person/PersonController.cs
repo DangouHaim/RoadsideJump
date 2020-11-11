@@ -11,8 +11,8 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
     [Header("Idle")]
     public float IdleScaling = 0.1f;
     public float IdleDuration = 1;
-    public float IdleFrequency = 1;
     private bool _isPersonScaleUp = true;
+    private bool _isIdleReady = true;
 
     #endregion
 
@@ -20,11 +20,13 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
 
     [Header("Moving")]
     public float JumpScaling = 0.2f;
+    public float JumpScalingDuration = 0.2f;
+    public float JumpScalingInterval = 0.4f;
     public float JumpForce = 1;
     public float JumpDistance = 1;
     public float JumpDuration = 1;
-    public float JumpFrequency = 1;
     public bool ReverseAxis = true;
+    private bool _isJumpReady = true;
 
     #endregion
 
@@ -33,6 +35,7 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
     private Vector3 _defaultScale;
     private PersonState _state;
     private IRotatable _rotatable;
+    private GameObject _skin;
 
     #endregion
 
@@ -46,7 +49,9 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
     {
         _defaultScale = transform.localScale;
         
-        if(!TryGetComponent<IRotatable>(out _rotatable))
+        _skin = transform.GetChild(0).gameObject;
+
+        if(!_skin.TryGetComponent<IRotatable>(out _rotatable))
         {
             Debug.LogWarning("IRotatable is null");
         }
@@ -64,13 +69,10 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
                 case PersonState.Idle:
                 {
                     Idle();
-                    yield return new WaitForSeconds(IdleFrequency);
                     break;
                 }
                 case PersonState.Moving:
                 {
-                    Move();
-                    yield return new WaitForSeconds(JumpFrequency);
                     break;
                 }
                 case PersonState.Dead:
@@ -84,7 +86,6 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
                     break;
                 }
             }
-            ResetState();
             yield return new WaitForFixedUpdate();
         }
     }
@@ -94,26 +95,25 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
     // Idle animation
     public void Idle()
     {
-        if(_isPersonScaleUp)
-            {
-                transform.DOScaleY(
-                    _defaultScale.y + IdleScaling,
-                    IdleDuration
-                );
-            }
-            else
-            {
-                transform.DOScaleY(
-                    _defaultScale.y,
-                    IdleDuration
-                );
-            }
+        if(!_isIdleReady)
+        {
+            return;
+        }
+        _isIdleReady = false;
 
-            _isPersonScaleUp = !_isPersonScaleUp;
+        AnimateIdle();
+
+        _isPersonScaleUp = !_isPersonScaleUp;
     }
 
     public void Move()
     {
+        if(!_isJumpReady)
+        {
+            return;
+        }
+        _isJumpReady = false;
+
         DoJump(_rotatable);
     }
     
@@ -133,14 +133,13 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
     public void OnInput()
     {
         _state = PersonState.Moving;
+        Move();
     }
     #endregion
 
     // Moving logic
     private void DoJump(IRotatable rotatable)
     {
-        // Prepare to jump
-
         // Detect jump direction
         Vector3 direction = rotatable.GetDirection().ToVector3(transform);
 
@@ -154,11 +153,75 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
             direction *= JumpDistance;
         }
         
-        transform.DOJump(
-            transform.position + direction,
-            JumpForce,
-            1,
-            JumpDuration
+        AnimateJump(direction);
+    }
+
+    private void AnimateIdle()
+    {
+        Sequence animation = DOTween.Sequence();
+        
+        animation.onComplete = () =>
+        {
+            _isIdleReady = true;
+        };
+
+        if(_isPersonScaleUp)
+        {
+            animation.Append(
+                _skin.transform.DOScaleY(
+                    _defaultScale.y + IdleScaling,
+                    IdleDuration
+                )
+            );
+        }
+        else
+        {
+            animation.Append(
+                _skin.transform.DOScaleY(
+                    _defaultScale.y,
+                    IdleDuration
+                )
+            );
+        }
+    }
+
+    private void AnimateJump(Vector3 direction)
+    {
+        // Animation sequence
+
+        Sequence jumpSequence = DOTween.Sequence();
+
+        jumpSequence.onComplete = () =>
+        {
+            _isJumpReady = true;
+            ResetState();
+        };
+
+        // Before jump
+        jumpSequence.Append(
+            _skin.transform.DOScaleY(
+                _defaultScale.y - JumpScaling,
+                JumpScalingDuration
+            )
+        );
+
+        jumpSequence.AppendInterval(JumpScalingInterval);
+
+        jumpSequence.Append(
+            _skin.transform.DOScaleY(
+                _defaultScale.y,
+                JumpScalingDuration
+            )
+        );
+
+        // Jump
+        jumpSequence.Append(
+            transform.DOJump(
+                transform.position + direction,
+                JumpForce,
+                1,
+                JumpDuration
+            )
         );
     }
 

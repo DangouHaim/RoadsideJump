@@ -3,5 +3,6 @@
     Forward,
     Backward,
     Left,
-    Right
+    Right,
+    Empty
 }

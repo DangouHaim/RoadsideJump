@@ -13,12 +13,7 @@ public class PoolManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-    }
-    #endregion
 
-    // Start is called before the first frame update
-    void Start()
-    {
         PoolDictionary = new Dictionary<string, Queue<GameObject>>();
 
         foreach(ObjectPool pool in Pools)
@@ -36,6 +31,13 @@ public class PoolManager : MonoBehaviour
 
             PoolDictionary.Add(pool.Tag, queue);
         }
+    }
+    #endregion
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
     }
 
     public GameObject Spawn(string tag, Vector3 position, Quaternion rotation)
