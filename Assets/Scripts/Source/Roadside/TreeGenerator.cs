@@ -4,21 +4,15 @@ using UnityEngine;
 
 public class TreeGenerator : MonoBehaviour, IPoolable
 {
-    public int Width = 36;
-
     private PoolManager _pool;
     private bool _isInit = false;
+    private int _width;
 
     // Start is called before the first frame update
     void Start()
     {
         _pool = PoolManager.Instance;
-
-        transform.localScale = new Vector3(
-            (float)Width,
-            transform.localScale.y,
-            transform.localScale.z
-        );
+        _width = (int)transform.localScale.x;
 
         GenerateTrees();
         _isInit = true;
@@ -36,12 +30,14 @@ public class TreeGenerator : MonoBehaviour, IPoolable
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-        int part = Width / 3;
+        int generatedInMiddle = 0;
+
+        int part = _width / 3;
         
         // Center in zero => left side = Width / 2; right side = left side * -1
         // If we have Width = 6 and center = 0 => roadsice have next coordinates for generation:
         // 3, 2, 1, 0, -1, -2, -3 
-        int start = Width / 2;
+        int start = _width / 2;
 
         for(int i = start; i > -start; i--)
         {
@@ -56,9 +52,19 @@ public class TreeGenerator : MonoBehaviour, IPoolable
 
             if(result == 1)
             {
+                if(factor == 10) // If middle part
+                {
+                    generatedInMiddle++;
+                }
+
+                if(generatedInMiddle > part / 2) // If too many trees in middle part
+                {
+                    continue;
+                }
+
                 Vector3 spawnVector = new Vector3((float)-i, transform.position.y + 1, transform.position.z);
 
-                if(Vector3.Distance(player.transform.position, spawnVector) > 1) // Check if player far enought
+                if(Vector3.Distance(player.transform.position, spawnVector) > 2) // Check if player far enought
                 {
                     _pool.Spawn("Tree", spawnVector, Quaternion.identity);
                 }
