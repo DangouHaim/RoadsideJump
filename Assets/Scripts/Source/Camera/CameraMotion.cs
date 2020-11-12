@@ -9,10 +9,12 @@ public class CameraMotion : MonoBehaviour, ITracker
     public float DefaultDuration = 5;
     public float MinimumDuration = 2;
     public float MaximumDistanceToPlayer = 3;
+    public int PlayerKillDistance = 5;
     public int FramesUpdateInterval = 10;
     public bool ReverseDirection = true;
 
-    private ITracker _playerPath;
+    private PathTracker _playerPath;
+    private IPersonController _personController;
     private int _pastFrameCount = 0;
 
     public int Count()
@@ -24,16 +26,30 @@ public class CameraMotion : MonoBehaviour, ITracker
     void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        _playerPath = player.GetComponent<ITracker>();
+        
+        if(!player.TryGetComponent<PathTracker>(out _playerPath))
+        {
+            Debug.LogWarning("PathTracker is null.");
+        }
+        
+        if(!player.TryGetComponent<IPersonController>(out _personController))
+        {
+            Debug.LogWarning("IPersonController is null.");
+        }
     }
 
     void FixedUpdate()
     {
-        MoveCamera();        
+        MoveCamera();
     }
 
     private void MoveCamera()
     {
+        if(_playerPath.Count() + PlayerKillDistance < Count())
+        {
+            _personController.Die();
+        }
+
         if(Time.frameCount - _pastFrameCount > FramesUpdateInterval)
         {
             transform.DOMove(GetDirection(), GetDuration());

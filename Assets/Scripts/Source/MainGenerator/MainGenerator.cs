@@ -10,17 +10,25 @@ public class MainGenerator : MonoBehaviour
 
     private PoolManager _pool;
     private PathTracker _playerPath;
+    private ITracker _cameraPath;
     private int _currentGenerationIndex = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         _pool = PoolManager.Instance;
+        
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject camera = GameObject.FindGameObjectWithTag("Camera");
         
         if(!player.TryGetComponent<PathTracker>(out _playerPath))
         {
             Debug.LogWarning("PathTracker is null.");
+        }
+
+        if(!camera.TryGetComponent<ITracker>(out _cameraPath))
+        {
+            Debug.LogWarning("ITracker is null.");
         }
 
         GenerateStartRoadside();
@@ -28,7 +36,8 @@ public class MainGenerator : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(_currentGenerationIndex < _playerPath.Count() + GenerationDistance)
+        if(_currentGenerationIndex < _playerPath.Count() + GenerationDistance
+            || _currentGenerationIndex < _cameraPath.Count() + GenerationDistance)
         {
             GenerateNext();
         }
@@ -36,7 +45,7 @@ public class MainGenerator : MonoBehaviour
 
     private void GenerateStartRoadside()
     {
-        for(int i = 0; i < StartRoadsideLenght; i++)
+        for(int i = StartRoadsideLenght; i >= 0 ; i--)
         {
             GenerateByTag("Roadside", i);
         }

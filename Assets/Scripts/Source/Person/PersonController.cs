@@ -142,6 +142,11 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
         UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Main");
     }
 
+    public bool IsAlive()
+    {
+        return _state != PersonState.Dead;
+    }
+
     #endregion
 
     #region  IControllable

@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartRoadsideLenght: 10
-  GenerationDistance: 30
+  GenerationDistance: 50
   ReverceAxis: 1

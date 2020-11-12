@@ -9,6 +9,7 @@ TagManager:
   - RightStart
   - Enemy
   - Obstacle
+  - Camera
   layers:
   - Default
   - TransparentFX

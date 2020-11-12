@@ -8,4 +8,5 @@ public interface IPersonController
     void Die();
     void Respawn();
     void Move();
+    bool IsAlive();
 }
