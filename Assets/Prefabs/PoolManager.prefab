@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pools:
   - Tag: Tree
-    Size: 500
+    Size: 600
     Prefab: {fileID: 4346832638340988167, guid: 01e0030b013c60e4bb08131c361407f5,
       type: 3}
   - Tag: Roadside
