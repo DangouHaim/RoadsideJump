@@ -12,6 +12,8 @@ public class PoolManager : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(this);
+        
         Instance = this;
 
         PoolDictionary = new Dictionary<string, Queue<GameObject>>();

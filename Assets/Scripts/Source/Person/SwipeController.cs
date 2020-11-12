@@ -54,6 +54,9 @@ public class SwipeController : MonoBehaviour
 				{
 					return Direction.Right;
 				}
+
+				//just tap
+				return Direction.Forward;
 			}
 		}
 

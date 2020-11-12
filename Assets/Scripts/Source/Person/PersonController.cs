@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PersonController : MonoBehaviour, IPersonController, IControllable
 {
@@ -27,6 +28,13 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
     public float JumpDuration = 1;
     public bool ReverseAxis = true;
     private bool _isJumpReady = true;
+
+    #endregion
+
+    #region Dead
+
+    [Header("Dead")]
+    public int RespawnTime = 10;
 
     #endregion
 
@@ -77,7 +85,8 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
                 }
                 case PersonState.Dead:
                 {
-                    Die();
+                    yield return new WaitForSeconds(RespawnTime);
+                    Respawn();
                     break;
                 }
                 case PersonState.Respawned:
@@ -108,7 +117,7 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
 
     public void Move()
     {
-        if(!_isJumpReady)
+        if(!_isJumpReady || _state == PersonState.Dead)
         {
             return;
         }
@@ -119,12 +128,18 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
     
     public void Die()
     {
-        throw new System.NotImplementedException();
+        if(_state != PersonState.Dead)
+        {
+            _state = PersonState.Dead;
+            GetComponent<InputController>().enabled = false;
+            transform.Find("Skin").gameObject.SetActive(false);
+            transform.Find("DeadBody").gameObject.SetActive(true);
+        }
     }
 
     public void Respawn()
     {
-        throw new System.NotImplementedException();
+        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Main");
     }
 
     #endregion
@@ -215,18 +230,46 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
         );
 
         // Jump
-        jumpSequence.Append(
-            transform.DOJump(
-                transform.position + direction,
-                JumpForce,
-                1,
-                JumpDuration
-            )
-        );
+        if(CanMove(direction))
+        {
+            jumpSequence.Append(
+                transform.DOJump(
+                    transform.position + direction,
+                    JumpForce,
+                    1,
+                    JumpDuration
+                )
+            );
+        }
     }
 
     private void ResetState()
     {
-        _state = PersonState.Idle;
+        if(_state != PersonState.Dead)
+        {
+            _state = PersonState.Idle;
+        }
+    }
+
+    // Detect obstacles using raycast
+    private bool CanMove(Vector3 direction)
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, direction, out hit, Mathf.Infinity, 1))
+        {
+            if(hit.transform.tag == "Obstacle" && hit.distance < 1)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    void OnTriggerEnter(Collider collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            Die();
+        }
     }
 }

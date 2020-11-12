@@ -312,6 +312,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2052669327, guid: d6277821c62f9d643980172b71a751b3, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 429894979339046161, guid: d6277821c62f9d643980172b71a751b3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -536,52 +540,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287955658840781433, guid: 2e0d6a25931c9fb4c96141a0a9470a02,
-        type: 3}
-      propertyPath: Pools.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287955658840781433, guid: 2e0d6a25931c9fb4c96141a0a9470a02,
-        type: 3}
-      propertyPath: Pools.Array.data[5].Tag
-      value: Car
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287955658840781433, guid: 2e0d6a25931c9fb4c96141a0a9470a02,
-        type: 3}
-      propertyPath: Pools.Array.data[5].Size
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287955658840781433, guid: 2e0d6a25931c9fb4c96141a0a9470a02,
-        type: 3}
-      propertyPath: Pools.Array.data[5].Prefab
-      value: 
-      objectReference: {fileID: 4405666398668072021, guid: 665b12b06d87893409dc98120c9838e6,
-        type: 3}
-    - target: {fileID: 1287955658840781433, guid: 2e0d6a25931c9fb4c96141a0a9470a02,
-        type: 3}
-      propertyPath: Pools.Array.data[4].Size
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287955658840781433, guid: 2e0d6a25931c9fb4c96141a0a9470a02,
-        type: 3}
-      propertyPath: Pools.Array.data[3].Size
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287955658840781433, guid: 2e0d6a25931c9fb4c96141a0a9470a02,
-        type: 3}
-      propertyPath: Pools.Array.data[2].Size
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287955658840781433, guid: 2e0d6a25931c9fb4c96141a0a9470a02,
-        type: 3}
-      propertyPath: Pools.Array.data[1].Size
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287955658840781433, guid: 2e0d6a25931c9fb4c96141a0a9470a02,
-        type: 3}
-      propertyPath: Pools.Array.data[0].Size
-      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1287955658840781434, guid: 2e0d6a25931c9fb4c96141a0a9470a02,
         type: 3}

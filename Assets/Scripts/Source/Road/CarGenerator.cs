@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CarGenerator : MonoBehaviour
 {
-    public int MinimumCarDuration = 7;
-    public int MaximumCarDuration = 11;
-    public int MinimumSpawnTime = 1;
+    public int MinimumCarDuration = 8;
+    public int MaximumCarDuration = 15;
+    public int MinimumSpawnTime = 2;
     public int MaximumSpawnTime = 5;
 
     private PoolManager _pool;
@@ -40,7 +40,7 @@ public class CarGenerator : MonoBehaviour
             }
 
             IMovable car = _pool.Spawn("Car", carStart, Quaternion.identity).GetComponent<IMovable>();
-            // Move and rotate
+            // Move and rotate car
             car.MoveTo(carEnd, Random.Range(MinimumCarDuration, MaximumCarDuration), toLeft);
 
             int wait = Random.Range(MinimumSpawnTime, MaximumSpawnTime);
