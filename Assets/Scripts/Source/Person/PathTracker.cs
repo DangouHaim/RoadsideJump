@@ -8,14 +8,4 @@ public class PathTracker : MonoBehaviour, ITracker
     {
         return -(int)transform.position.z;
     }
-
-    public void Load()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void Save()
-    {
-        throw new System.NotImplementedException();
-    }
 }
