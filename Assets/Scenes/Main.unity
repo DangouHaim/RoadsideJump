@@ -213,6 +213,24 @@ Transform:
   m_Father: {fileID: 1452055793}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 5.9020004, y: 60.271004, z: -154.248}
+--- !u!1 &399359381 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3387811153937569073, guid: d6277821c62f9d643980172b71a751b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1217784958}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &399359389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399359381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626a225af0bda804b9b22ae81debea17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +390,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Preson
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6446082064940133371, guid: d6277821c62f9d643980172b71a751b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d6277821c62f9d643980172b71a751b3, type: 3}
 --- !u!1 &1452055792
 GameObject:

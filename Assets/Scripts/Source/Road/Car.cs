@@ -30,7 +30,7 @@ public class Car : MonoBehaviour, IMovable
     {
         if(rotate)
         {
-            transform.DORotate(new Vector3(0, 180, 0), 0.1f);
+            transform.DORotate(new Vector3(0, 180, 0), 0.3f);
         }
         
         transform.DOMove(target, duration);
