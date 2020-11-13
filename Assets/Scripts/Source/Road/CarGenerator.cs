@@ -24,6 +24,18 @@ public class CarGenerator : MonoBehaviour
     {
         while(true)
         {
+            int wait = Random.Range(MinimumSpawnTime, MaximumSpawnTime);
+            float duration = Random.Range(MinimumCarDuration, MaximumCarDuration);
+            
+            float allowed = GetAllowedDuration(wait);
+            
+            if(duration < allowed) // Detect minimum allowed motion duration to prevent collision
+            {
+                duration = allowed;
+            }
+
+            yield return new WaitForSeconds(wait);
+
             Vector3 start = transform.Find("Start").transform.position;
             Vector3 end = transform.Find("End").transform.position;
             
@@ -40,11 +52,26 @@ public class CarGenerator : MonoBehaviour
             }
 
             IMovable car = _pool.Spawn("Car", carStart, Quaternion.identity).GetComponent<IMovable>();
+            
             // Move and rotate car
-            car.MoveTo(carEnd, Random.Range(MinimumCarDuration, MaximumCarDuration), toLeft);
-
-            int wait = Random.Range(MinimumSpawnTime, MaximumSpawnTime);
-            yield return new WaitForSeconds(wait);
+            car.MoveTo(carEnd, duration, toLeft);
         }
+    }
+
+    private float GetAllowedDuration(int wait)
+    {
+        float max = MaximumCarDuration;
+        float min = MinimumCarDuration;
+
+        // Get absolute ranges
+        float total = max - min;
+        int totalWait = MaximumSpawnTime - MinimumSpawnTime;
+
+        // Get increasing percent
+        float percent = total / totalWait;
+
+        float result = max - percent * (wait - MinimumSpawnTime);
+
+        return result;
     }
 }

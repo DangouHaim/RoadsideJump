@@ -7,6 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class PersonController : MonoBehaviour, IPersonController, IControllable
 {
+    #region DeathZone
+
+    [Header("Death Zone")]
+    public float DeathDistance = 10;
+
+    #endregion
+
     #region Idle
     
     [Header("Idle")]
@@ -96,6 +103,14 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
                 }
             }
             yield return new WaitForFixedUpdate();
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if(Mathf.Abs(transform.position.x) > DeathDistance)
+        {
+            Die();
         }
     }
 

@@ -49,10 +49,10 @@ MonoBehaviour:
     Prefab: {fileID: 4346832638340988167, guid: 01e0030b013c60e4bb08131c361407f5,
       type: 3}
   - Tag: Roadside
-    Size: 30
+    Size: 40
     Prefab: {fileID: 602076552542185596, guid: 8dc9b74bf347cd94f8d2b96a9f5b93c7, type: 3}
   - Tag: Road
-    Size: 30
+    Size: 40
     Prefab: {fileID: 5904924812051625967, guid: 09616c7595ec3804283552ba8709bfda,
       type: 3}
   - Tag: Rails
@@ -63,6 +63,6 @@ MonoBehaviour:
     Prefab: {fileID: 6808115199576926833, guid: 4a6e4510e75e92849a9565e37d3454e4,
       type: 3}
   - Tag: Car
-    Size: 150
+    Size: 300
     Prefab: {fileID: 4405666398668072021, guid: 665b12b06d87893409dc98120c9838e6,
       type: 3}

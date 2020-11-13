@@ -38895,6 +38895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 506340ff56232a242bac4476ad0a86ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathDistance: 10
   IdleScaling: 0.1
   IdleDuration: 1
   JumpScaling: 0.2
