@@ -51,6 +51,7 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
     private PersonState _state;
     private IRotatable _rotatable;
     private GameObject _skin;
+    private PathTracker _pathTracker;
 
     #endregion
 
@@ -70,6 +71,17 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
         {
             Debug.LogWarning("IRotatable is null");
         }
+
+        if(!TryGetComponent<PathTracker>(out _pathTracker))
+        {
+            Debug.LogWarning("PathTracker is null.");
+        }
+
+        _pathTracker.RecordAchived += (s, e) =>
+        {
+            // Make effect on record achived
+            DeadBodyPart.UseGravity = false;
+        };
 
         StartCoroutine("Controller");
     }

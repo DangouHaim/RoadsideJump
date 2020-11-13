@@ -18,8 +18,6 @@ public static class SaveManager
         string fileName = data.GetType().ToString();
         string path = Path.Combine(Application.persistentDataPath, fileName);
 
-        Debug.Log(path);
-
         using(FileStream f = new FileStream(path, FileMode.Create))
         {
             _formatter.Serialize(f, data);
@@ -31,8 +29,6 @@ public static class SaveManager
         string fileName = type.ToString();
         string path = Path.Combine(Application.persistentDataPath, fileName);
         object result;
-
-        Debug.Log(path);
 
         using(FileStream f = new FileStream(path, FileMode.Open))
         {

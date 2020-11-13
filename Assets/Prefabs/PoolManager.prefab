@@ -66,3 +66,7 @@ MonoBehaviour:
     Size: 300
     Prefab: {fileID: 4405666398668072021, guid: 665b12b06d87893409dc98120c9838e6,
       type: 3}
+  - Tag: Train
+    Size: 50
+    Prefab: {fileID: 4923006003142934098, guid: bd53c88c31bcb624c90065f350f24dc5,
+      type: 3}

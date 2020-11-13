@@ -1,9 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EventArgs = System.EventArgs;
 
 public class CarGenerator : MonoBehaviour
 {
+    public class GenerationEventArgs : EventArgs
+    {
+        public int Seconds {get;set;}
+    }
+
+    public  event System.EventHandler<GenerationEventArgs> BeforeGeneration = (s, e) => {};
+
+    public string CarPrefabName = "Car";
     public int MinimumCarDuration = 8;
     public int MaximumCarDuration = 15;
     public int MinimumSpawnTime = 2;
@@ -34,6 +43,7 @@ public class CarGenerator : MonoBehaviour
                 duration = allowed;
             }
 
+            BeforeGeneration.Invoke(this, new GenerationEventArgs() { Seconds = wait});
             yield return new WaitForSeconds(wait);
 
             Vector3 start = transform.Find("Start").transform.position;
@@ -51,7 +61,7 @@ public class CarGenerator : MonoBehaviour
                 carEnd = start;
             }
 
-            IMovable car = _pool.Spawn("Car", carStart, Quaternion.identity).GetComponent<IMovable>();
+            IMovable car = _pool.Spawn(CarPrefabName, carStart, Quaternion.identity).GetComponent<IMovable>();
             
             // Move and rotate car
             car.MoveTo(carEnd, duration, toLeft);
