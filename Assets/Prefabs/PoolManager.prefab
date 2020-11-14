@@ -63,7 +63,7 @@ MonoBehaviour:
     Prefab: {fileID: 6808115199576926833, guid: 4a6e4510e75e92849a9565e37d3454e4,
       type: 3}
   - Tag: Car
-    Size: 70
+    Size: 80
     Prefab: {fileID: 4405666398668072021, guid: 665b12b06d87893409dc98120c9838e6,
       type: 3}
   - Tag: Train

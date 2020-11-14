@@ -43378,13 +43378,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skin
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 133023fadbb0e234f84341093a5dbc49, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 133023fadbb0e234f84341093a5dbc49, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 133023fadbb0e234f84341093a5dbc49, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 133023fadbb0e234f84341093a5dbc49, type: 3}
       propertyPath: m_LocalPosition.z
@@ -43421,6 +43425,18 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 133023fadbb0e234f84341093a5dbc49, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 133023fadbb0e234f84341093a5dbc49, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 133023fadbb0e234f84341093a5dbc49, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 133023fadbb0e234f84341093a5dbc49, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 133023fadbb0e234f84341093a5dbc49, type: 3}

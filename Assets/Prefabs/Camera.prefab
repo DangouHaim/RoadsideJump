@@ -214,7 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaximumSpeed: 4
   DefaultSpeed: 2
-  MinimumSpeed: 0.5
+  MinimumSpeed: 0.3
   MaximumDistanceToPlayer: 3
   PlayerKillDistance: 2
   ReverseDirection: 1

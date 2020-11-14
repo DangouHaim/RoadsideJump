@@ -203,6 +203,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 459015333538641759, guid: d32ca707aa9727a4eb2079f97e007ef6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 459015333538641759, guid: d32ca707aa9727a4eb2079f97e007ef6,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 459015333538641759, guid: d32ca707aa9727a4eb2079f97e007ef6,
+        type: 3}
+      propertyPath: m_BounceIntensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 459015333538641759, guid: d32ca707aa9727a4eb2079f97e007ef6,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 459015334114722271, guid: d32ca707aa9727a4eb2079f97e007ef6,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 459015335224711476, guid: d32ca707aa9727a4eb2079f97e007ef6,
         type: 3}
       propertyPath: m_LocalPosition.x

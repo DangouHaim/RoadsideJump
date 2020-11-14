@@ -244,7 +244,6 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
         jumpSequence.onComplete = () =>
         {
             _isJumpReady = true;
-            ResetState();
         };
 
         // Before jump
@@ -275,14 +274,6 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
                     JumpDuration
                 )
             );
-        }
-    }
-
-    private void ResetState()
-    {
-        if(_state != PersonState.Dead)
-        {
-            _state = PersonState.Idle;
         }
     }
 

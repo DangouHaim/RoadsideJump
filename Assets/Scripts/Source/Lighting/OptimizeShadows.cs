@@ -10,19 +10,19 @@ public class OptimizeShadows : MonoBehaviour
 
     void Update()
     {
-        if(_shadpwsDisabled || _frames > 5)
+        if(_shadpwsDisabled || _frames > 15)
         {
             return;
         }
 
         _frames++;
 
-        if(1.0f / Time.smoothDeltaTime < 25)
+        if(1.0f / Time.smoothDeltaTime < 40)
         {
             _badFrames++;
         }
 
-        if(_badFrames > 5)
+        if(_badFrames > 10)
         {
             QualitySettings.shadows = ShadowQuality.Disable;
             _shadpwsDisabled = true;
