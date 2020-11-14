@@ -5,17 +5,15 @@ using DG.Tweening;
 
 public class CameraMotion : MonoBehaviour, ITracker
 {
-    public float MaximumDuration = 10;
-    public float DefaultDuration = 5;
-    public float MinimumDuration = 2;
+    public float MaximumSpeed = 4;
+    public float DefaultSpeed = 2;
+    public float MinimumSpeed = 0.5f;
     public float MaximumDistanceToPlayer = 3;
-    public int PlayerKillDistance = 5;
-    public int FramesUpdateInterval = 10;
+    public int PlayerKillDistance = 4;
     public bool ReverseDirection = true;
 
     private PathTracker _playerPath;
     private IPersonController _personController;
-    private int _pastFrameCount = 0;
 
     public int Count()
     {
@@ -50,11 +48,7 @@ public class CameraMotion : MonoBehaviour, ITracker
             _personController.Die();
         }
 
-        if(Time.frameCount - _pastFrameCount > FramesUpdateInterval)
-        {
-            transform.DOMove(GetDirection(), GetDuration());
-            _pastFrameCount = Time.frameCount;
-        }
+        transform.Translate(GetDirection() * Time.deltaTime * GetSpeed());
     }
 
     private Vector3 GetDirection()
@@ -66,29 +60,29 @@ public class CameraMotion : MonoBehaviour, ITracker
             direction = -direction;
         }
 
-        return transform.position + direction;
+        return direction;
     }
 
-    private float GetDuration()
+    private float GetSpeed()
     {
-        float duration = 10;
+        float speed = 10;
         ITracker cameraPath = this;
 
         if(cameraPath.Count() + MaximumDistanceToPlayer < _playerPath.Count())
         {
-            duration = MinimumDuration;
+            speed = MaximumSpeed;
         }
         else
         {
             if(cameraPath.Count() >= _playerPath.Count())
             {
-                duration = MaximumDuration;
+                speed = MinimumSpeed;
             }
             else
             {
-                duration = DefaultDuration;
+                speed = DefaultSpeed;
             }
         }
-        return duration;
+        return speed;
     }
 }

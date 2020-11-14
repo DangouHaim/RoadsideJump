@@ -83,6 +83,9 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
             DeadBodyPart.UseGravity = false;
         };
 
+        // Record not achived, disable effect
+        DeadBodyPart.UseGravity = true;
+
         StartCoroutine("Controller");
     }
     #endregion

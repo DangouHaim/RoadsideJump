@@ -8,7 +8,11 @@ public class Saving : MonoBehaviour
 
     void Awake()
     {
-        PlayerData = new PlayerData();
         PlayerData = SaveManager.Load(PlayerData.GetType()) as PlayerData;
+        if(PlayerData == null)
+        {
+            Debug.Log("asdasd");
+            PlayerData = new PlayerData();
+        }
     }
 }

@@ -2,8 +2,8 @@
 
 public class SwipeController : MonoBehaviour
 {
-	public float SensetivityX = 0.3f;
-	public float SensetivityY = 0.3f;
+	public float SensetivityX = 0.5f;
+	public float SensetivityY = 0.5f;
 
 	private Vector2 _firstPressPosition;
 	private Vector2 _secondPressPosition;

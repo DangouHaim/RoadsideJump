@@ -43,6 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d71f050894cbc47b880e84f3a22879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartRoadsideLenght: 10
-  GenerationDistance: 50
+  StartRoadsideLenght: 5
+  GenerationDistance: 12
   ReverceAxis: 1

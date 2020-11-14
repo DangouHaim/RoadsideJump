@@ -9,7 +9,6 @@ public class MainGenerator : MonoBehaviour
     public bool ReverceAxis = true;
 
     private PoolManager _pool;
-    private PathTracker _playerPath;
     private ITracker _cameraPath;
     private int _currentGenerationIndex = 0;
 
@@ -20,11 +19,6 @@ public class MainGenerator : MonoBehaviour
         
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         GameObject camera = GameObject.FindGameObjectWithTag("Camera");
-        
-        if(!player.TryGetComponent<PathTracker>(out _playerPath))
-        {
-            Debug.LogWarning("PathTracker is null.");
-        }
 
         if(!camera.TryGetComponent<ITracker>(out _cameraPath))
         {
@@ -36,8 +30,7 @@ public class MainGenerator : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(_currentGenerationIndex < _playerPath.Count() + GenerationDistance
-            || _currentGenerationIndex < _cameraPath.Count() + GenerationDistance)
+        if(_currentGenerationIndex < _cameraPath.Count() + GenerationDistance)
         {
             GenerateNext();
         }

@@ -977,7 +977,7 @@ Transform:
   m_GameObject: {fileID: 951870806853572282}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 60, y: 1, z: 1}
+  m_LocalScale: {x: 20, y: 1, z: 1}
   m_Children:
   - {fileID: 1268722104226310829}
   - {fileID: 1966132045612588238}
@@ -1077,6 +1077,7 @@ MonoBehaviour:
   MaximumCarDuration: 2
   MinimumSpawnTime: 4
   MaximumSpawnTime: 8
+  LateMove: 1
 --- !u!1 &986752973217808434
 GameObject:
   m_ObjectHideFlags: 0
@@ -3076,7 +3077,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2751040827389648949}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.119, y: 0.671, z: 0}
+  m_LocalPosition: {x: -1.844, y: 0.671, z: 0}
   m_LocalScale: {x: 0.016666668, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1692745913489972541}
@@ -4294,7 +4295,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4139114786724108425}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9, y: 0.671, z: 0}
+  m_LocalPosition: {x: 1.458, y: 0.671, z: 0}
   m_LocalScale: {x: 0.016666668, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1692745913489972541}
