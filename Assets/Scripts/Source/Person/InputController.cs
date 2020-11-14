@@ -26,9 +26,13 @@ public class InputController : MonoBehaviour, IInputController
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
         ProcessMobileInput();
+    }
+
+    void FixedUpdate()
+    {
         ProcessPcInput();
     }
 

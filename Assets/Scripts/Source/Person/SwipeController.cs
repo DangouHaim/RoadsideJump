@@ -8,6 +8,7 @@ public class SwipeController : MonoBehaviour
 	private Vector2 _firstPressPosition;
 	private Vector2 _secondPressPosition;
 	private Vector2 _currentSwipe;
+	private int _frames = 0;
 	
 	public Direction GetSwipeDirection()
 	{
@@ -18,10 +19,16 @@ public class SwipeController : MonoBehaviour
 			{
 				//save began touch 2d point
 				_firstPressPosition = new Vector2(t.position.x,t.position.y);
+				_frames = Time.frameCount;
 			}
 
 			if(t.phase == TouchPhase.Ended)
 			{
+				if(Time.frameCount - _frames < 5)
+				{
+					return Direction.Forward;
+				}
+
 				//save ended touch 2d point
 				_secondPressPosition = new Vector2(t.position.x,t.position.y);
 							
