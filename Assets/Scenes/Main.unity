@@ -421,47 +421,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1287955658840781433, guid: 2e0d6a25931c9fb4c96141a0a9470a02,
-        type: 3}
-      propertyPath: Pools.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287955658840781433, guid: 2e0d6a25931c9fb4c96141a0a9470a02,
-        type: 3}
-      propertyPath: Pools.Array.data[1].Size
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287955658840781433, guid: 2e0d6a25931c9fb4c96141a0a9470a02,
-        type: 3}
-      propertyPath: Pools.Array.data[2].Size
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287955658840781433, guid: 2e0d6a25931c9fb4c96141a0a9470a02,
-        type: 3}
-      propertyPath: Pools.Array.data[3].Size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287955658840781433, guid: 2e0d6a25931c9fb4c96141a0a9470a02,
-        type: 3}
-      propertyPath: Pools.Array.data[4].Size
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287955658840781433, guid: 2e0d6a25931c9fb4c96141a0a9470a02,
-        type: 3}
-      propertyPath: Pools.Array.data[7].Tag
-      value: Log
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287955658840781433, guid: 2e0d6a25931c9fb4c96141a0a9470a02,
-        type: 3}
-      propertyPath: Pools.Array.data[7].Size
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287955658840781433, guid: 2e0d6a25931c9fb4c96141a0a9470a02,
-        type: 3}
-      propertyPath: Pools.Array.data[7].Prefab
-      value: 
-      objectReference: {fileID: 1592778045124061407, guid: eb23db63b0e12b845af96001be3f5c15,
-        type: 3}
     - target: {fileID: 1287955658840781434, guid: 2e0d6a25931c9fb4c96141a0a9470a02,
         type: 3}
       propertyPath: m_Name

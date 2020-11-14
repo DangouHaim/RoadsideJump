@@ -5,7 +5,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PersonController : MonoBehaviour, IPersonController, IControllable
+public partial class PersonController : MonoBehaviour, IPersonController, IControllable
 {
     #region DeathZone
 
@@ -218,6 +218,7 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
     {
         _isDrawnSafe = true;
         transform.parent = swimObject.transform;
+        AnimateLog(swimObject);
     }
 
     private void ReleaseLog()
@@ -226,77 +227,6 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
         if(transform.parent != null)
         {
             transform.parent = null;
-        }
-    }
-
-    private void AnimateIdle()
-    {
-        Sequence animation = DOTween.Sequence();
-        
-        animation.onComplete = () =>
-        {
-            _isIdleReady = true;
-        };
-
-        if(_isPersonScaleUp)
-        {
-            animation.Append(
-                _skin.transform.DOScaleY(
-                    _defaultScale.y + IdleScaling,
-                    IdleDuration
-                )
-            );
-        }
-        else
-        {
-            animation.Append(
-                _skin.transform.DOScaleY(
-                    _defaultScale.y,
-                    IdleDuration
-                )
-            );
-        }
-    }
-
-    private void AnimateJump(Vector3 direction)
-    {
-        // Animation sequence
-
-        Sequence jumpSequence = DOTween.Sequence();
-
-        jumpSequence.onComplete = () =>
-        {
-            _isJumpReady = true;
-        };
-
-        // Before jump
-        jumpSequence.Append(
-            _skin.transform.DOScaleY(
-                _defaultScale.y - JumpScaling,
-                JumpScalingDuration
-            )
-        );
-
-        jumpSequence.AppendInterval(JumpScalingInterval);
-
-        jumpSequence.Append(
-            _skin.transform.DOScaleY(
-                _defaultScale.y,
-                JumpScalingDuration
-            )
-        );
-
-        // Jump
-        if(CanMove(direction))
-        {
-            jumpSequence.Append(
-                transform.DOJump(
-                    transform.position + direction,
-                    JumpForce,
-                    1,
-                    JumpDuration
-                )
-            );
         }
     }
 

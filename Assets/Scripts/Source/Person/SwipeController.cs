@@ -24,7 +24,7 @@ public class SwipeController : MonoBehaviour
 
 			if(t.phase == TouchPhase.Ended)
 			{
-				if(Time.frameCount - _frames < 5)
+				if(Time.frameCount - _frames < 10)
 				{
 					return Direction.Forward;
 				}
