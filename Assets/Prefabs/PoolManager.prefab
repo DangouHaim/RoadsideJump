@@ -49,17 +49,17 @@ MonoBehaviour:
     Prefab: {fileID: 4346832638340988167, guid: 01e0030b013c60e4bb08131c361407f5,
       type: 3}
   - Tag: Roadside
-    Size: 16
+    Size: 18
     Prefab: {fileID: 602076552542185596, guid: 8dc9b74bf347cd94f8d2b96a9f5b93c7, type: 3}
   - Tag: Road
-    Size: 16
+    Size: 18
     Prefab: {fileID: 5904924812051625967, guid: 09616c7595ec3804283552ba8709bfda,
       type: 3}
   - Tag: Rails
-    Size: 6
+    Size: 10
     Prefab: {fileID: 951870806853572282, guid: ea9ebbad0ee488e44a961161b192383b, type: 3}
   - Tag: Water
-    Size: 16
+    Size: 18
     Prefab: {fileID: 6808115199576926833, guid: 4a6e4510e75e92849a9565e37d3454e4,
       type: 3}
   - Tag: Car
@@ -69,4 +69,8 @@ MonoBehaviour:
   - Tag: Train
     Size: 16
     Prefab: {fileID: 4923006003142934098, guid: bd53c88c31bcb624c90065f350f24dc5,
+      type: 3}
+  - Tag: Log
+    Size: 50
+    Prefab: {fileID: 1592778045124061407, guid: eb23db63b0e12b845af96001be3f5c15,
       type: 3}

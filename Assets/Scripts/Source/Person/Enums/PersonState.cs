@@ -3,5 +3,6 @@
     Idle = default,
     Moving,
     Dead,
-    Respawned
+    Respawned,
+    Drawn
 }

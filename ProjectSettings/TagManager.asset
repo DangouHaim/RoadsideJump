@@ -10,6 +10,8 @@ TagManager:
   - Enemy
   - Obstacle
   - Camera
+  - Water
+  - Log
   layers:
   - Default
   - TransparentFX

@@ -52,6 +52,7 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
     private IRotatable _rotatable;
     private GameObject _skin;
     private PathTracker _pathTracker;
+    private bool _isDrawnSafe = false;
 
     #endregion
 
@@ -114,6 +115,13 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
                 case PersonState.Respawned:
                 {
                     Respawn();
+                    break;
+                }
+                case PersonState.Drawn:
+                {
+                    transform.DOMove(transform.position - transform.up * 1.2f, 0.1f);
+                    yield return new WaitForSeconds(0.2f);
+                    Die();
                     break;
                 }
             }
@@ -206,6 +214,21 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
         AnimateJump(direction);
     }
 
+    private void DoSwim(GameObject swimObject)
+    {
+        _isDrawnSafe = true;
+        transform.parent = swimObject.transform;
+    }
+
+    private void ReleaseLog()
+    {
+        _isDrawnSafe = false;
+        if(transform.parent != null)
+        {
+            transform.parent = null;
+        }
+    }
+
     private void AnimateIdle()
     {
         Sequence animation = DOTween.Sequence();
@@ -291,11 +314,34 @@ public class PersonController : MonoBehaviour, IPersonController, IControllable
         return true;
     }
 
-    void OnTriggerEnter(Collider collision)
+    private void DrawnToDie()
     {
-        if(collision.gameObject.tag == "Enemy")
+        GetComponent<InputController>().enabled = false;
+        _state = PersonState.Drawn;
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        // Swimming on log
+        if(collider.gameObject.tag == "Log")
+        {
+            DoSwim(collider.gameObject);
+        }
+        if(collider.gameObject.tag == "Enemy")
         {
             Die();
+        }
+        if(!_isDrawnSafe && collider.gameObject.tag == "Water")
+        {
+            DrawnToDie();
+        }
+    }
+
+    void OnTriggerExit(Collider collider)
+    {
+        if(collider.gameObject.tag == "Log")
+        {
+            ReleaseLog();
         }
     }
 }
