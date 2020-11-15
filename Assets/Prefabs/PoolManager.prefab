@@ -74,3 +74,6 @@ MonoBehaviour:
     Size: 80
     Prefab: {fileID: 1592778045124061407, guid: eb23db63b0e12b845af96001be3f5c15,
       type: 3}
+  - Tag: Coin
+    Size: 30
+    Prefab: {fileID: 797279881292328505, guid: cd2b9809220a5d04392fdfbb867b2f68, type: 3}

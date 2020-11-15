@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 819834958296282823}
   - component: {fileID: 810756683727803347}
   - component: {fileID: 15163964061450793}
+  - component: {fileID: 2090980162539726798}
   m_Layer: 0
-  m_Name: GoldCoin
+  m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +49,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 797279881292328505}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -88,8 +89,21 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 797279881292328505}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
+  m_IsTrigger: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.009639849, y: 0.0020546722, z: 0.010133398}
   m_Center: {x: -2.3283063e-10, y: 0.0010272979, z: -2.3283063e-10}
+--- !u!114 &2090980162539726798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797279881292328505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f003aa48722e04479b2bfa0497f0a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cost: 1

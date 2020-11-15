@@ -784,6 +784,7 @@ GameObject:
   - component: {fileID: 5904924812051625961}
   - component: {fileID: 5904924812051625966}
   - component: {fileID: 4131023942784085565}
+  - component: {fileID: 6423020125612042153}
   m_Layer: 0
   m_Name: Road
   m_TagString: Untagged
@@ -897,6 +898,18 @@ MonoBehaviour:
   MinimumSpawnTime: 3
   MaximumSpawnTime: 5
   LateMove: 0
+--- !u!114 &6423020125612042153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5904924812051625967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19286fbddd4cb344ab86a18b3f39d9a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6955162793602724658
 GameObject:
   m_ObjectHideFlags: 0

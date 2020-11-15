@@ -408,6 +408,7 @@ GameObject:
   - component: {fileID: 9072113166771113455}
   - component: {fileID: 3044680619682357372}
   - component: {fileID: 3473903498951338755}
+  - component: {fileID: 7398661676431014351}
   m_Layer: 0
   m_Name: Rails
   m_TagString: Untagged
@@ -519,6 +520,18 @@ MonoBehaviour:
   MinimumSpawnTime: 4
   MaximumSpawnTime: 8
   LateMove: 1
+--- !u!114 &7398661676431014351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951870806853572282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19286fbddd4cb344ab86a18b3f39d9a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1377011713950079226
 GameObject:
   m_ObjectHideFlags: 0

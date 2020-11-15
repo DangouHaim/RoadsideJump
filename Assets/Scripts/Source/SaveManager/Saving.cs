@@ -11,7 +11,6 @@ public class Saving : MonoBehaviour
         PlayerData = SaveManager.Load(PlayerData.GetType()) as PlayerData;
         if(PlayerData == null)
         {
-            Debug.Log("asdasd");
             PlayerData = new PlayerData();
         }
     }

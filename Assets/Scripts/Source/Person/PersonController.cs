@@ -255,6 +255,11 @@ public partial class PersonController : MonoBehaviour, IPersonController, IContr
         // Swimming on log
         if(collider.gameObject.tag == "Log")
         {
+            if(_state == PersonState.Dead || _state == PersonState.Drawn)
+            {
+                return;
+            }
+            
             DoSwim(collider.gameObject);
         }
         if(collider.gameObject.tag == "Enemy")
