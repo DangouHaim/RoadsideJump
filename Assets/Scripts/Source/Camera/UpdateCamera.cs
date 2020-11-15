@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UpdateCamera : MonoBehaviour
 {
+    public bool CameraDebug = false;
     private GameObject _pCamera;
     private GameObject _lCamera;
 
@@ -15,6 +16,11 @@ public class UpdateCamera : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(CameraDebug)
+        {
+            return;
+        }
+        
         DetectCameraOrientation();
     }
     

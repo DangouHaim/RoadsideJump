@@ -11,6 +11,7 @@ public class CameraMotion : MonoBehaviour, ITracker
     public float MaximumDistanceToPlayer = 3;
     public int PlayerKillDistance = 4;
     public bool ReverseDirection = true;
+    public bool CameraDebug = false;
 
     private PathTracker _playerPath;
     private IPersonController _personController;
@@ -38,6 +39,11 @@ public class CameraMotion : MonoBehaviour, ITracker
 
     void FixedUpdate()
     {
+        if(CameraDebug)
+        {
+            return;
+        }
+        
         MoveCamera();
     }
 

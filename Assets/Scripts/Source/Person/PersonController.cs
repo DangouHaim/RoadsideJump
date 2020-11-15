@@ -265,6 +265,11 @@ public partial class PersonController : MonoBehaviour, IPersonController, IContr
         {
             DrawnToDie();
         }
+        if(collider.gameObject.tag == "Ground")
+        {
+            // Reset x position to correct value
+            transform.DOMoveX(Mathf.Round(transform.position.x), JumpDuration);
+        }
     }
 
     void OnTriggerExit(Collider collider)

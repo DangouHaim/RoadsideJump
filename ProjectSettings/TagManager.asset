@@ -12,6 +12,7 @@ TagManager:
   - Camera
   - Water
   - Log
+  - Ground
   layers:
   - Default
   - TransparentFX

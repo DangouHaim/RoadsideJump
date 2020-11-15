@@ -1179,7 +1179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9222167856633765221}
   - component: {fileID: 2473443396729245604}
-  - component: {fileID: 8187276300430199881}
+  - component: {fileID: 5443381002142633584}
   m_Layer: 0
   m_Name: Train
   m_TagString: Untagged
@@ -1218,7 +1218,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8187276300430199881
+--- !u!114 &5443381002142633584
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1227,7 +1227,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4923006003142934098}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a63fd5ab35f4be04e81ef6e9bec002d1, type: 3}
+  m_Script: {fileID: 11500000, guid: f180fbe23a4e1dc42992164ec7af0a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5034935132026445306

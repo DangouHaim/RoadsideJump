@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 297318716}
-  m_LocalRotation: {x: 0.09243601, y: 0.7806047, z: -0.60653657, w: 0.1192699}
-  m_LocalPosition: {x: -0.05, y: 10.6, z: -0.03}
+  m_LocalRotation: {x: 0.054005645, y: 0.7756947, z: -0.6061397, w: 0.16725965}
+  m_LocalPosition: {x: -0.92, y: 12.05, z: 0.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2629208222195762675}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 75.692, y: 162.559, z: -0.086}
+  m_LocalEulerAnglesHint: {x: 73.420006, y: 137.162, z: -24.644001}
 --- !u!20 &297318719
 Camera:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1926522588815898663}
   m_LocalRotation: {x: 0.07955781, y: 0.8393411, z: -0.52224207, w: 0.12821968}
-  m_LocalPosition: {x: -2.08, y: 5.11, z: 0.25}
+  m_LocalPosition: {x: -2.32, y: 6.73, z: 1.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2629208222195762675}
@@ -218,6 +218,7 @@ MonoBehaviour:
   MaximumDistanceToPlayer: 3
   PlayerKillDistance: 2
   ReverseDirection: 1
+  CameraDebug: 0
 --- !u!114 &3208985451728656411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,3 +231,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fefca52a8d8cde48859eacc0f0cd182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CameraDebug: 0
