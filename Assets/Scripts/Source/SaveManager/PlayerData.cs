@@ -1,8 +1,9 @@
 ﻿using System;
+using UnityEngine;
 
 [Serializable]
 public class PlayerData : AutoSaveBase
-{
+{   
     private int _coins;
     public int Coins
     {
@@ -20,18 +21,18 @@ public class PlayerData : AutoSaveBase
         }
     }
 
-    private int _path;
-    public int Path
+    private int _pathRecord;
+    public int PathRecord
     {
-        get { return _path; }
+        get { return _pathRecord; }
         set
         {
-            if(_path == value)
+            if(_pathRecord == value)
             {
                 return;
             }
             
-            _path = value;
+            _pathRecord = value;
 
             Save(this);
         }

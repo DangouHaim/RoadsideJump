@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using Random = UnityEngine.Random;
 
-public class Generator : MonoBehaviour, IPoolable
+public abstract class Generator : MonoBehaviour, IPoolable
 {
     public class GenerationEventArgs : EventArgs
     {

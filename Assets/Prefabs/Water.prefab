@@ -221,8 +221,8 @@ MonoBehaviour:
   CarPrefabName: Log
   MinimumCarDuration: 15
   MaximumCarDuration: 20
-  MinimumSpawnTime: 3
-  MaximumSpawnTime: 5
+  MinimumSpawnTime: 5
+  MaximumSpawnTime: 7
   LateMove: 0
 --- !u!1 &7248744883939131443
 GameObject:

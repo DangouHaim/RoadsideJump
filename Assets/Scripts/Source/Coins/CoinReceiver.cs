@@ -9,7 +9,7 @@ public class CoinReceiver : MonoBehaviour, ITracker
 
     void Start()
     {
-        if(!TryGetComponent<Saving>(out _data))
+        if(!GameObject.FindGameObjectWithTag("Saving").TryGetComponent<Saving>(out _data))
         {
             Debug.LogWarning("Saving is null.");
         }
@@ -21,6 +21,7 @@ public class CoinReceiver : MonoBehaviour, ITracker
     {
         _count += count;
         _data.PlayerData.Coins = _count;
+        _data.UserModel.Coins = _count;
     }
 
     public int Count()

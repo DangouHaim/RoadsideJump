@@ -13,6 +13,7 @@ TagManager:
   - Water
   - Log
   - Ground
+  - Saving
   layers:
   - Default
   - TransparentFX

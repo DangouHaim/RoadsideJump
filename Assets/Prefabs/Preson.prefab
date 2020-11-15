@@ -43228,7 +43228,6 @@ GameObject:
   - component: {fileID: 2291343356862151075}
   - component: {fileID: 2052669327}
   - component: {fileID: 1392489559898524145}
-  - component: {fileID: 399359389}
   - component: {fileID: 1005218131}
   m_Layer: 0
   m_Name: Preson
@@ -43343,18 +43342,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &399359389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3387811153937569073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 626a225af0bda804b9b22ae81debea17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1005218131
 MonoBehaviour:
   m_ObjectHideFlags: 0

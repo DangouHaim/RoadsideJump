@@ -11,7 +11,7 @@ public class PathTracker : MonoBehaviour, ITracker
 
     void Start()
     {
-        if(!TryGetComponent<Saving>(out _data))
+        if(!GameObject.FindGameObjectWithTag("Saving").TryGetComponent<Saving>(out _data))
         {
             Debug.LogWarning("Saving is null.");
         }
@@ -21,10 +21,16 @@ public class PathTracker : MonoBehaviour, ITracker
     {
         int count = Count();
 
-        if(count > _data.PlayerData.Path)
+        if(count > _data.UserModel.Path)
+        {
+            _data.UserModel.Path = count;
+        }
+
+        if(count > _data.PlayerData.PathRecord)
         {
             RecordAchived.Invoke(this, new EventArgs());
-            _data.PlayerData.Path = count;
+            _data.PlayerData.PathRecord = count;
+            _data.UserModel.PathRecord = count;
         }
     }
 
