@@ -31,6 +31,9 @@ public class DataService : MonoBehaviour
         UserModel userModel = data == null ? new UserModel() : data as UserModel;
         UserModel = new UserModel(userModel);
 
-        LoadingModel = new LoadingModel();
+        LoadingModel = new LoadingModel()
+        {
+            Loading = true
+        };
     }
 }
