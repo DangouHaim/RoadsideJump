@@ -2,5 +2,5 @@
 
 public interface IAutoSavable
 {
-    event EventHandler<EventArgs> OnPropertyChanged;
+    event EventHandler<EventArgs> OnUpdate;
 }

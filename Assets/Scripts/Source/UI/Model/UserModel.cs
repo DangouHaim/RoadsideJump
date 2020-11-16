@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class UserModel : BindableBase
 {
     private int _path;
@@ -37,6 +39,7 @@ public class UserModel : BindableBase
             }
             _pathRecord = value;
             OnPropertyChanged("PathRecord", _pathRecord);
+            Save(this);
         }
     }
 
@@ -55,6 +58,7 @@ public class UserModel : BindableBase
             }
             _coins = value;
             OnPropertyChanged("Coins", _coins);
+            Save(this);
         }
     }
 
@@ -92,5 +96,19 @@ public class UserModel : BindableBase
             _isStarted = value;
             OnPropertyChanged("IsStarted", _isStarted);
         }
+    }
+
+    public UserModel()
+    {
+
+    }
+
+    public UserModel(UserModel source)
+    {
+        Path = source.Path;
+        PathRecord = source.PathRecord;
+        Coins = source.Coins;
+        IsDead = source.IsDead;
+        IsStarted = source.IsStarted;
     }
 }

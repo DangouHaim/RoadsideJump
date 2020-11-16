@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using System.Reflection;
 using System;
+using UnityEngine.UI;
 
 public class UIBinding : MonoBehaviour
 {

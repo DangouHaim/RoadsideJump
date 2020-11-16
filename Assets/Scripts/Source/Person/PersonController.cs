@@ -52,7 +52,7 @@ public partial class PersonController : MonoBehaviour, IPersonController, IContr
     private IRotatable _rotatable;
     private GameObject _skin;
     private PathTracker _pathTracker;
-    private Saving _data;
+    private DataService _service;
     private bool _isDrawnSafe = false;
 
     #endregion
@@ -79,9 +79,9 @@ public partial class PersonController : MonoBehaviour, IPersonController, IContr
             Debug.LogWarning("PathTracker is null.");
         }
 
-        if(!GameObject.FindGameObjectWithTag("Saving").TryGetComponent<Saving>(out _data))
+        if(!GameObject.FindGameObjectWithTag("DataService").TryGetComponent<DataService>(out _service))
         {
-            Debug.LogWarning("Saving is null.");
+            Debug.LogWarning("DataService is null.");
         }
 
         _pathTracker.RecordAchived += (s, e) =>
@@ -92,8 +92,8 @@ public partial class PersonController : MonoBehaviour, IPersonController, IContr
 
         // Record not achived, disable effect
         DeadBodyPart.UseGravity = true;
-        _data.UserModel.IsDead = false;
-        _data.UserModel.IsStarted = true;
+        _service.UserModel.IsDead = false;
+        _service.UserModel.IsStarted = true;
 
         StartCoroutine("Controller");
     }
@@ -163,7 +163,8 @@ public partial class PersonController : MonoBehaviour, IPersonController, IContr
 
     public void Move()
     {
-        _data.UserModel.IsStarted = false;
+        _service.UserModel.IsStarted = false;
+        
         if(!_isJumpReady || _state == PersonState.Dead)
         {
             return;
@@ -177,7 +178,7 @@ public partial class PersonController : MonoBehaviour, IPersonController, IContr
     {
         if(_state != PersonState.Dead)
         {
-            _data.UserModel.IsDead = true;
+            _service.UserModel.IsDead = true;
             _state = PersonState.Dead;
             GetComponent<InputController>().enabled = false;
             transform.Find("Skin").gameObject.SetActive(false);

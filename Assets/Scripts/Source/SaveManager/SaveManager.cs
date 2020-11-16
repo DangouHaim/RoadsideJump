@@ -28,7 +28,14 @@ public static class SaveManager
 
         using(FileStream f = new FileStream(path, FileMode.Create))
         {
-            _formatter.Serialize(f, data);
+            try
+            {
+                _formatter.Serialize(f, data);
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError(ex.Message + "; " + ex.StackTrace);
+            }
         }
     }
 
@@ -38,13 +45,26 @@ public static class SaveManager
         string path = Path.Combine(_path, fileName);
         object result;
 
+        if(!File.Exists(path))
+        {
+            return null;
+        }
+
         using(FileStream f = new FileStream(path, FileMode.OpenOrCreate))
         {
             if(f.Length == 0)
             {
                 return null;
             }
-            result = _formatter.Deserialize(f);
+            try
+            {
+                result = _formatter.Deserialize(f);
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError(ex.Message + "; " + ex.StackTrace);
+                return null;
+            }
         }
 
         return result;

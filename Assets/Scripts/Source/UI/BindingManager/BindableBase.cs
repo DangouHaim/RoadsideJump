@@ -1,15 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public abstract class BindableBase
+[Serializable]
+public abstract class BindableBase : AutoSaveBase
 {
-    private Bindings _bindings;
-
-    public BindableBase()
-    {
-        _bindings = Bindings.GetInstance();
-    }
+    [NonSerialized]
+    private static Bindings _bindings = Bindings.GetInstance();
 
     public void OnPropertyChanged(string name, object value)
     {

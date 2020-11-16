@@ -5,23 +5,22 @@ using UnityEngine;
 public class CoinReceiver : MonoBehaviour, ITracker
 {
     private int _count;
-    private Saving _data;
+    private DataService _service;
 
     void Start()
     {
-        if(!GameObject.FindGameObjectWithTag("Saving").TryGetComponent<Saving>(out _data))
+        if(!GameObject.FindGameObjectWithTag("DataService").TryGetComponent<DataService>(out _service))
         {
-            Debug.LogWarning("Saving is null.");
+            Debug.LogWarning("DataService is null.");
         }
         
-        _count = _data.PlayerData.Coins;
+        _count = _service.UserModel.Coins;
     }
 
     public void CollectCoin(int count)
     {
         _count += count;
-        _data.PlayerData.Coins = _count;
-        _data.UserModel.Coins = _count;
+        _service.UserModel.Coins = _count;
     }
 
     public int Count()

@@ -1,0 +1,30 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DataService : MonoBehaviour
+{
+    public UserModel UserModel;
+    public SettingsModel SettingsModel;
+    private static bool _init = false;
+
+    void Start()
+    {
+        DontDestroyOnLoad(this);
+
+        if(_init)
+        {
+            return;
+        }
+        _init = true;
+
+        object data = SaveManager.Load(typeof(SettingsModel));
+        SettingsModel settingsModel = data == null ? new SettingsModel() : data as SettingsModel;
+        Debug.Log(settingsModel.UseSound);
+        SettingsModel = new SettingsModel(settingsModel);
+
+        data = SaveManager.Load(typeof(UserModel));
+        UserModel userModel = data == null ? new UserModel() : data as UserModel;
+        UserModel = new UserModel(userModel);
+    }
+}

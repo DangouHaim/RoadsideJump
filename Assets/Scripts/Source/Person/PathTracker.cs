@@ -7,33 +7,32 @@ public class PathTracker : MonoBehaviour, ITracker
 {
     public event EventHandler<EventArgs> RecordAchived = (s, e) => {};
 
-    private Saving _data;
+    private DataService  _service;
 
     void Start()
     {
-        if(!GameObject.FindGameObjectWithTag("Saving").TryGetComponent<Saving>(out _data))
+        if(!GameObject.FindGameObjectWithTag("DataService").TryGetComponent<DataService>(out _service))
         {
-            Debug.LogWarning("Saving is null.");
+            Debug.LogWarning("DataService is null.");
         }
 
         // Reset path on respawn
-        _data.UserModel.Path = 0;
+        _service.UserModel.Path = 0;
     }
 
     void FixedUpdate()
     {
         int count = Count();
 
-        if(count > _data.UserModel.Path)
+        if(count > _service.UserModel.Path)
         {
-            _data.UserModel.Path = count;
+            _service.UserModel.Path = count;
         }
 
-        if(count > _data.PlayerData.PathRecord)
+        if(count > _service.UserModel.PathRecord)
         {
             RecordAchived.Invoke(this, new EventArgs());
-            _data.PlayerData.PathRecord = count;
-            _data.UserModel.PathRecord = count;
+            _service.UserModel.PathRecord = count;
         }
     }
 

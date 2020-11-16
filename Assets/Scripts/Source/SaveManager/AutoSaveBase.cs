@@ -4,11 +4,11 @@ using UnityEngine;
 [Serializable]
 public abstract class AutoSaveBase : IAutoSavable
 {
-    public event EventHandler<EventArgs> OnPropertyChanged = (s, e) => {};
+    public event EventHandler<EventArgs> OnUpdate = (s, e) => {};
 
     public AutoSaveBase()
     {
-        OnPropertyChanged += (s, e) =>
+        OnUpdate += (s, e) =>
         {
             SaveManager.Save(s);
         };
@@ -16,6 +16,6 @@ public abstract class AutoSaveBase : IAutoSavable
 
     public void Save(object sender)
     {
-        OnPropertyChanged.Invoke(sender, new EventArgs());
+        OnUpdate.Invoke(sender, new EventArgs());
     }
 }
