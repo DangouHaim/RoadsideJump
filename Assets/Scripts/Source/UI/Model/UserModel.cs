@@ -57,4 +57,40 @@ public class UserModel : BindableBase
             OnPropertyChanged("Coins", _coins);
         }
     }
+
+    private bool _isDead;
+    public bool IsDead
+    {
+        get
+        {
+            return _isDead;
+        }
+        set
+        {
+            if(value == _isDead)
+            {
+                return;
+            }
+            _isDead = value;
+            OnPropertyChanged("IsDead", _isDead);
+        }
+    }
+
+    private bool _isStarted;
+    public bool IsStarted
+    {
+        get
+        {
+            return _isStarted;
+        }
+        set
+        {
+            if(value == _isStarted)
+            {
+                return;
+            }
+            _isStarted = value;
+            OnPropertyChanged("IsStarted", _isStarted);
+        }
+    }
 }

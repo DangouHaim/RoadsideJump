@@ -43274,7 +43274,7 @@ MonoBehaviour:
   JumpDistance: 1
   JumpDuration: 0.2
   ReverseAxis: 1
-  RespawnTime: 10
+  RespawnTime: 60
 --- !u!114 &5557846290427015601
 MonoBehaviour:
   m_ObjectHideFlags: 0
