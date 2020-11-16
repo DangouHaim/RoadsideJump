@@ -20,7 +20,6 @@ public class DataService : MonoBehaviour
 
         object data = SaveManager.Load(typeof(SettingsModel));
         SettingsModel settingsModel = data == null ? new SettingsModel() : data as SettingsModel;
-        Debug.Log(settingsModel.UseSound);
         SettingsModel = new SettingsModel(settingsModel);
 
         data = SaveManager.Load(typeof(UserModel));
