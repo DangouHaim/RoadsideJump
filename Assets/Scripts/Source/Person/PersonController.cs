@@ -61,6 +61,7 @@ public partial class PersonController : MonoBehaviour, IPersonController, IContr
     void Awake()
     {
         DOTween.Init();
+        DOTween.logBehaviour = LogBehaviour.ErrorsOnly;
     }
 
     void Start()
@@ -69,6 +70,34 @@ public partial class PersonController : MonoBehaviour, IPersonController, IContr
         
         _skin = transform.GetChild(0).gameObject;
 
+        LoadComponents();
+
+        _pathTracker.RecordAchived += (s, e) =>
+        {
+            // Make effect on record achived
+            DeadBodyPart.UseGravity = false;
+        };
+
+        // Record not achived, disable effect
+        DeadBodyPart.UseGravity = true;
+        
+        StartCoroutine(InitUI());
+
+        StartCoroutine(Controller());
+    }
+
+    private IEnumerator InitUI()
+    {
+        _service.UserModel.IsDead = false;
+        _service.UserModel.IsStarted = true;
+
+        // Delay after loading
+        yield return new WaitForSeconds(2);
+        _service.LoadingModel.Loading = false;
+    }
+
+    private void LoadComponents()
+    {
         if(!_skin.TryGetComponent<IRotatable>(out _rotatable))
         {
             Debug.LogWarning("IRotatable is null");
@@ -83,20 +112,8 @@ public partial class PersonController : MonoBehaviour, IPersonController, IContr
         {
             Debug.LogWarning("DataService is null.");
         }
-
-        _pathTracker.RecordAchived += (s, e) =>
-        {
-            // Make effect on record achived
-            DeadBodyPart.UseGravity = false;
-        };
-
-        // Record not achived, disable effect
-        DeadBodyPart.UseGravity = true;
-        _service.UserModel.IsDead = false;
-        _service.UserModel.IsStarted = true;
-
-        StartCoroutine("Controller");
     }
+
     #endregion
 
     IEnumerator Controller()

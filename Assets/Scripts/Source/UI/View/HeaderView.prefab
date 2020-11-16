@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -612.8, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &890349373418366154
@@ -137,7 +137,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -306.4, y: 0.000015258789}
+  m_AnchoredPosition: {x: -306.40002, y: 0}
   m_SizeDelta: {x: -612.8, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5978323269883616303
@@ -380,7 +380,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 5.8}
+  m_AnchoredPosition: {x: 0, y: 5.799988}
   m_SizeDelta: {x: 0, y: 11.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8967570540094756210
@@ -591,6 +591,7 @@ MonoBehaviour:
   Binding: Coins
   Path: text
   ConvertType: System.String
+  Converter: 
   Default: 0
 --- !u!1 &5440653448125090952
 GameObject:
@@ -764,6 +765,7 @@ MonoBehaviour:
   Binding: Path
   Path: text
   ConvertType: System.String
+  Converter: 
   Default: 0
 --- !u!1 &5440653449060468916
 GameObject:
@@ -778,7 +780,7 @@ GameObject:
   - component: {fileID: 5440653449060468918}
   - component: {fileID: 5440653449060468919}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: HeaderView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1036,6 +1038,7 @@ MonoBehaviour:
   Binding: PathRecord
   Path: text
   ConvertType: System.String
+  Converter: 
   Default: 0
 --- !u!1 &6942922050507698958
 GameObject:
@@ -1074,10 +1077,10 @@ RectTransform:
   m_Father: {fileID: 5440653449060468920}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 128.54999}
-  m_SizeDelta: {x: 0, y: -257.1}
+  m_AnchoredPosition: {x: 0, y: -31.950012}
+  m_SizeDelta: {x: 0, y: 63.899994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7705057301248697882
 Canvas:

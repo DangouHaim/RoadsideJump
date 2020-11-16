@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 2629208222195762675}
   - component: {fileID: 2191431097279499374}
   - component: {fileID: 3208985451728656411}
+  - component: {fileID: 5326562887193846974}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Camera
@@ -232,3 +233,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CameraDebug: 0
+--- !u!114 &5326562887193846974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5884445510043622801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcae1e3a15e9e234bad17a5fbad5a408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetType: CameraMotion
+  Binding: IsStarted
+  Path: enabled
+  ConvertType: System.Boolean
+  Converter: BoolNotConverter
+  Default: False

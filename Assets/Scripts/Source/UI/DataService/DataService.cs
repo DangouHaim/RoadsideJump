@@ -6,12 +6,17 @@ public class DataService : MonoBehaviour
 {
     public UserModel UserModel;
     public SettingsModel SettingsModel;
+    public LoadingModel LoadingModel;
+
     private static bool _init = false;
+
+    void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
 
     void Start()
     {
-        DontDestroyOnLoad(this);
-
         if(_init)
         {
             return;
@@ -25,5 +30,7 @@ public class DataService : MonoBehaviour
         data = SaveManager.Load(typeof(UserModel));
         UserModel userModel = data == null ? new UserModel() : data as UserModel;
         UserModel = new UserModel(userModel);
+
+        LoadingModel = new LoadingModel();
     }
 }

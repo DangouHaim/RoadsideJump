@@ -15,10 +15,11 @@ public class EndHandler : MonoBehaviour
 
     #region Elements
 
-    private Toggle _useSound;
+    private Toggle _useSoundToggle;
+    private Button _retryButton;
 
     #endregion
-    
+
     void Start()
     {
         Initialize();
@@ -34,16 +35,33 @@ public class EndHandler : MonoBehaviour
 
     private void Initialize()
     {
-        _useSound = GetComponentInChildren<Toggle>();
+        _useSoundToggle = GetComponentInChildren<Toggle>();
+        _retryButton = GetComponentInChildren<Button>();
     }
 
     private void SetHandlers()
     {
-        _useSound.onValueChanged.AddListener(delegate { OnUseSoundChanged(); });
+        _useSoundToggle.onValueChanged.AddListener(
+            delegate {
+                OnUseSoundChanged();
+            }
+        );
+
+        _retryButton.onClick.AddListener(
+            delegate {
+                OnRetryClick();
+            }
+        );
     }
 
     private void OnUseSoundChanged()
     {
-        _service.SettingsModel.UseSound = _useSound.isOn;
+        _service.SettingsModel.UseSound = _useSoundToggle.isOn;
+    }
+
+    private void OnRetryClick()
+    {
+        _service.LoadingModel.Loading = true;
+        _player.GetComponent<PersonController>().Respawn();
     }
 }
