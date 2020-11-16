@@ -15,6 +15,9 @@ public class PathTracker : MonoBehaviour, ITracker
         {
             Debug.LogWarning("Saving is null.");
         }
+
+        // Reset path on respawn
+        _data.UserModel.Path = 0;
     }
 
     void FixedUpdate()
