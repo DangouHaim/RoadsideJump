@@ -13,7 +13,7 @@ public partial class PersonController
         Transform log = swimObject.transform;
         float originY = log.position.y;
         
-        s.Append(log.DOMoveY(originY - 0.1f, duration));
+        s.Append(log.DOMoveY(originY - 0.05f, duration));
         s.Append(log.DOMoveY(originY, duration));
     }
 
