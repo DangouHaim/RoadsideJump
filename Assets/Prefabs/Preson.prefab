@@ -22397,6 +22397,7 @@ GameObject:
   - component: {fileID: 2052669327}
   - component: {fileID: 1392489559898524145}
   - component: {fileID: 1005218131}
+  - component: {fileID: -2011504471292637911}
   m_Layer: 0
   m_Name: Preson
   m_TagString: Player
@@ -22522,6 +22523,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0579e003afd6234abca186b5ea0bbf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2011504471292637911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3387811153937569073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcae1e3a15e9e234bad17a5fbad5a408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Binding: Loading
+  TargetType: InputController
+  Path: enabled
+  ConvertType: 
+  Converter: BoolNotConverter
+  Default: False
+  Notifications: 0
 --- !u!114 &8349568688608692395
 MonoBehaviour:
   m_ObjectHideFlags: 0

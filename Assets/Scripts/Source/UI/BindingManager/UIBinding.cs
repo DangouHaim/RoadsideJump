@@ -8,8 +8,8 @@ using UnityEngine.UI;
 
 public class UIBinding : MonoBehaviour
 {
-    public string TargetType;
     public string Binding;
+    public string TargetType;
     public string Path;
     public string ConvertType;
     public string Converter;
@@ -41,14 +41,18 @@ public class UIBinding : MonoBehaviour
             return;
         }
 
-        Type type = Type.GetType(ConvertType);
-        if(type == null)
+        object valueToSet = value;
+        if(!string.IsNullOrEmpty(ConvertType))
         {
-            Debug.LogWarning(gameObject.name + " contains incorrect ConvertType: " + ConvertType);
-            return;
+            Type type = Type.GetType(ConvertType);
+            if(type == null)
+            {
+                Debug.LogWarning(gameObject.name + " contains incorrect ConvertType: " + ConvertType);
+                return;
+            }
+            
+            valueToSet = Convert.ChangeType(value, type);
         }
-        
-        object valueToSet = Convert.ChangeType(value, type);
 
         try
         {

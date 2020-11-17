@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 297318717}
   - component: {fileID: 297318719}
   - component: {fileID: 297318718}
+  - component: {fileID: 8597798041964868795}
   m_Layer: 0
   m_Name: PCamera
   m_TagString: MainCamera
@@ -82,7 +83,26 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 297318716}
+  m_Enabled: 0
+--- !u!114 &8597798041964868795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297318716}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcae1e3a15e9e234bad17a5fbad5a408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Binding: UseSound
+  TargetType: AudioListener
+  Path: enabled
+  ConvertType: 
+  Converter: 
+  Default: False
+  Notifications: 0
 --- !u!1 &1926522588815898663
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +114,7 @@ GameObject:
   - component: {fileID: 1926522588815898658}
   - component: {fileID: 1926522588815898661}
   - component: {fileID: 1926522588815898660}
+  - component: {fileID: 6463737518042894864}
   m_Layer: 0
   m_Name: LCamera
   m_TagString: MainCamera
@@ -165,7 +186,26 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1926522588815898663}
+  m_Enabled: 0
+--- !u!114 &6463737518042894864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926522588815898663}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcae1e3a15e9e234bad17a5fbad5a408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Binding: UseSound
+  TargetType: AudioListener
+  Path: enabled
+  ConvertType: 
+  Converter: 
+  Default: False
+  Notifications: 0
 --- !u!1 &5884445510043622801
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,9 +285,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcae1e3a15e9e234bad17a5fbad5a408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetType: CameraMotion
   Binding: IsStarted
+  TargetType: CameraMotion
   Path: enabled
   ConvertType: System.Boolean
   Converter: BoolNotConverter
   Default: False
+  Notifications: 0
