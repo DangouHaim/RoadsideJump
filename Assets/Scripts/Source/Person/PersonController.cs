@@ -195,6 +195,7 @@ public partial class PersonController : MonoBehaviour, IPersonController, IContr
     {
         if(_state != PersonState.Dead)
         {
+            AudioManager.Instance.Play("Dead");
             _service.UserModel.IsDead = true;
             _state = PersonState.Dead;
             GetComponent<InputController>().enabled = false;
@@ -266,6 +267,7 @@ public partial class PersonController : MonoBehaviour, IPersonController, IContr
         {
             if(hit.transform.tag == "Obstacle" && hit.distance < 1)
             {
+                AudioManager.Instance.Play("Obstacle");
                 return false;
             }
         }
@@ -274,8 +276,16 @@ public partial class PersonController : MonoBehaviour, IPersonController, IContr
 
     private void DrawnToDie()
     {
-        GetComponent<InputController>().enabled = false;
-        _state = PersonState.Drawn;
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position + transform.up, -transform.up, out hit, 5))
+        {
+            if(hit.transform.tag == "Water")
+            {
+                AudioManager.Instance.Play("Drawn");
+                GetComponent<InputController>().enabled = false;
+                _state = PersonState.Drawn;
+            }
+        }
     }
 
     void OnTriggerEnter(Collider collider)

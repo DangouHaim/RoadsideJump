@@ -22,6 +22,11 @@ public class Coin : MonoBehaviour, IPoolable
     {
         if(collider.gameObject.tag == "Player")
         {
+            if(!_renderer.enabled)
+            {
+                return;
+            }
+            
             _renderer.enabled = false;
             collider.gameObject.SendMessage("CollectCoin", Cost);
         }

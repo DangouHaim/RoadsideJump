@@ -61,6 +61,7 @@ public class EndHandler : MonoBehaviour
 
     private void OnRetryClick()
     {
+        AudioManager.Instance.Play("Button");
         _service.LoadingModel.Loading = true;
         _player.GetComponent<PersonController>().Respawn();
     }

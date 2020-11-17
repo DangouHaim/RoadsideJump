@@ -7,6 +7,8 @@ public partial class PersonController
 {
     private void AnimateLog(GameObject swimObject, float duration = 0.2f)
     {
+        AudioManager.Instance.Play("Log");
+        
         // Animate
         Sequence s = DOTween.Sequence();
         
@@ -77,6 +79,7 @@ public partial class PersonController
         // Jump
         if(CanMove(direction))
         {
+            AudioManager.Instance.Play("Jump");
             jumpSequence.Append(
                 transform.DOJump(
                     transform.position + direction,

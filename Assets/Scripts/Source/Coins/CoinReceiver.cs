@@ -21,6 +21,7 @@ public class CoinReceiver : MonoBehaviour, ITracker
     {
         _count += count;
         _service.UserModel.Coins = _count;
+        AudioManager.Instance.Play("Coin");
     }
 
     public int Count()

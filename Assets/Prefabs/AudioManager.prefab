@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9002051824839663142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9002051824839663144}
+  - component: {fileID: 9002051824839663143}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9002051824839663144
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9002051824839663142}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -433.32758, y: 113.6207, z: 830.9722}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9002051824839663143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9002051824839663142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb4944eeb7916d4c92f9a7b1da2794b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - Name: Coin
+    Clip: {fileID: 8300000, guid: 79180f511d89441b9aa23ccae1992fe0, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: MainTheme
+    Clip: {fileID: 8300000, guid: 6dc163fd97c880b48974bdd9b8c1aab4, type: 3}
+    Volume: 0.2
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: SubTheme1
+    Clip: {fileID: 8300000, guid: cc82aebcd4e51a3439af3daceb340588, type: 3}
+    Volume: 0.2
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: SubTheme2
+    Clip: {fileID: 8300000, guid: 5bfdd587448accb449cf6a40b1f490c5, type: 3}
+    Volume: 0.4
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: SubTheme3
+    Clip: {fileID: 8300000, guid: c5d884760254cc947865eac3140dfb9a, type: 3}
+    Volume: 0.2
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: SubTheme4
+    Clip: {fileID: 8300000, guid: 55ac9fb812eaaea40aaacc2c49a2b31e, type: 3}
+    Volume: 0.2
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: SubTheme5
+    Clip: {fileID: 8300000, guid: c8af656781dd83844b13c9273357a29a, type: 3}
+    Volume: 0.2
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: SubTheme6
+    Clip: {fileID: 8300000, guid: 37489bbdd7e1df641aa10c614abfd5b3, type: 3}
+    Volume: 0.6
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Button
+    Clip: {fileID: 8300000, guid: 19f89c6e740e7447f9e12a8310d3e973, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Obstacle
+    Clip: {fileID: 8300000, guid: 724131bc8a7f34041bb9f1701f0cb58d, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Jump
+    Clip: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
+    Volume: 0.2
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Log
+    Clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
+    Volume: 0.2
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Dead
+    Clip: {fileID: 8300000, guid: b99da9a57308d4ba1bee1cf1d9038376, type: 3}
+    Volume: 0.8
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Drawn
+    Clip: {fileID: 8300000, guid: 85a71a2be2bf9f84dae23cd4f9aa9658, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}

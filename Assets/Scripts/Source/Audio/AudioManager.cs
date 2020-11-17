@@ -32,7 +32,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void Play(string name)
+    public AudioSource Play(string name)
     {
         IEnumerable<Sound> results = from x in Sounds
             where x.Name == name
@@ -43,9 +43,10 @@ public class AudioManager : MonoBehaviour
         if(sound == null)
         {
             Debug.LogWarning("Cannont find sound with name: " + name);
-            return;
+            return null;
         }
 
         sound.Source.Play();
+        return sound.Source;
     }
 }
