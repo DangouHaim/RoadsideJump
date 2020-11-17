@@ -112,8 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcae1e3a15e9e234bad17a5fbad5a408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetType: Canvas
   Binding: Loading
+  TargetType: Canvas
   Path: enabled
   ConvertType: System.Boolean
   Converter: 

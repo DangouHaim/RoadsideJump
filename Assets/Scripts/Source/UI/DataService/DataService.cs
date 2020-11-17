@@ -19,6 +19,7 @@ public class DataService : MonoBehaviour
     {
         if(_init)
         {
+            Destroy(gameObject);
             return;
         }
         _init = true;

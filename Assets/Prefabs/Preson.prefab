@@ -22538,7 +22538,7 @@ MonoBehaviour:
   Binding: Loading
   TargetType: InputController
   Path: enabled
-  ConvertType: 
+  ConvertType: System.Boolean
   Converter: BoolNotConverter
   Default: False
   Notifications: 0

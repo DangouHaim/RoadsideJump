@@ -260,12 +260,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcae1e3a15e9e234bad17a5fbad5a408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetType: Canvas
   Binding: IsStarted
+  TargetType: Canvas
   Path: enabled
   ConvertType: System.Boolean
   Converter: 
   Default: False
+  Notifications: 0
 --- !u!1 &5426753903291585984
 GameObject:
   m_ObjectHideFlags: 0

@@ -99,7 +99,7 @@ MonoBehaviour:
   Binding: UseSound
   TargetType: AudioListener
   Path: enabled
-  ConvertType: 
+  ConvertType: System.Boolean
   Converter: 
   Default: False
   Notifications: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
   Binding: UseSound
   TargetType: AudioListener
   Path: enabled
-  ConvertType: 
+  ConvertType: System.Boolean
   Converter: 
   Default: False
   Notifications: 0

@@ -209,12 +209,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcae1e3a15e9e234bad17a5fbad5a408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetType: Canvas
   Binding: IsDead
+  TargetType: Canvas
   Path: enabled
   ConvertType: System.Boolean
   Converter: 
   Default: False
+  Notifications: 0
 --- !u!1 &1036584147106469914
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,12 +603,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcae1e3a15e9e234bad17a5fbad5a408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetType: TextMeshProUGUI
   Binding: PathRecord
+  TargetType: TextMeshProUGUI
   Path: text
   ConvertType: System.String
   Converter: 
   Default: 0
+  Notifications: 0
 --- !u!1 &3561363667482152137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,12 +1019,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcae1e3a15e9e234bad17a5fbad5a408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetType: Toggle
   Binding: UseSound
+  TargetType: Toggle
   Path: isOn
   ConvertType: System.Boolean
   Converter: 
   Default: False
+  Notifications: 0
 --- !u!1 &4411934256886730299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1567,12 +1570,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcae1e3a15e9e234bad17a5fbad5a408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetType: TextMeshProUGUI
   Binding: Path
+  TargetType: TextMeshProUGUI
   Path: text
   ConvertType: System.String
   Converter: 
   Default: 0
+  Notifications: 0
 --- !u!1 &6817003823288604288
 GameObject:
   m_ObjectHideFlags: 0
