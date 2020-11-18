@@ -6,7 +6,11 @@ public class InputController : MonoBehaviour, IInputController
 {
     private IRotatable _rotatable;
     private IControllable _person;
-    private SwipeController _swipeController;
+
+    void Awake()
+    {
+        GetComponent<SwipeDetector>().OnSwipe += OnSwipe;
+    }
 
     void Start()
     {
@@ -19,16 +23,6 @@ public class InputController : MonoBehaviour, IInputController
         {
             Debug.LogWarning("IRotatable is null.");
         }
-
-        if(!transform.TryGetComponent<SwipeController>(out _swipeController))
-        {
-            Debug.LogWarning("SwipeController is null.");
-        }
-    }
-
-    void Update()
-    {
-        ProcessMobileInput();
     }
 
     void FixedUpdate()
@@ -38,41 +32,23 @@ public class InputController : MonoBehaviour, IInputController
 
     #region InputProcessing
 
-    private void ProcessMobileInput()
+    private void OnSwipe(SwipeData data)
     {
-        Direction swipe = _swipeController.GetSwipeDirection();
-        
-        switch(swipe)
+        if(data.Direction == SwipeDirection.Down)
         {
-            case Direction.Forward:
-            {
-                Up();
-                break;
-            }
-            case Direction.Backward:
-            {
-                Down();
-                break;
-            }
-            case Direction.Left:
-            {
-                Left();
-                break;
-            }
-            case Direction.Right:
-            {
-                Right();
-                break;
-            }
-            case Direction.Empty:
-            {
-                break;
-            }
-
-            default:
-            {
-                break;
-            }
+            Down();
+        }
+        if(data.Direction == SwipeDirection.Up)
+        {
+            Up();
+        }
+        if(data.Direction == SwipeDirection.Left)
+        {
+            Left();
+        }
+        if(data.Direction == SwipeDirection.Right)
+        {
+            Right();
         }
     }
 

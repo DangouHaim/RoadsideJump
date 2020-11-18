@@ -83,7 +83,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 297318716}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!114 &8597798041964868795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,10 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Binding: UseSound
   TargetType: AudioListener
-  Path: enabled
+  Path: volume
   ConvertType: System.Boolean
-  Converter: 
-  Default: False
+  Converter: BoolIntConverter
+  Default: 
   Notifications: 0
 --- !u!1 &1926522588815898663
 GameObject:
@@ -186,7 +186,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1926522588815898663}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!114 &6463737518042894864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,10 +201,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Binding: UseSound
   TargetType: AudioListener
-  Path: enabled
+  Path: volume
   ConvertType: System.Boolean
-  Converter: 
-  Default: False
+  Converter: BoolIntConverter
+  Default: 
   Notifications: 0
 --- !u!1 &5884445510043622801
 GameObject:

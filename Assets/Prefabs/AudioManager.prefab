@@ -52,13 +52,13 @@ MonoBehaviour:
     Source: {fileID: 0}
   - Name: MainTheme
     Clip: {fileID: 8300000, guid: 6dc163fd97c880b48974bdd9b8c1aab4, type: 3}
-    Volume: 0.2
+    Volume: 0.4
     Pitch: 1
     Loop: 0
     Source: {fileID: 0}
   - Name: SubTheme1
     Clip: {fileID: 8300000, guid: cc82aebcd4e51a3439af3daceb340588, type: 3}
-    Volume: 0.2
+    Volume: 0.4
     Pitch: 1
     Loop: 0
     Source: {fileID: 0}
@@ -70,25 +70,25 @@ MonoBehaviour:
     Source: {fileID: 0}
   - Name: SubTheme3
     Clip: {fileID: 8300000, guid: c5d884760254cc947865eac3140dfb9a, type: 3}
-    Volume: 0.2
+    Volume: 0.4
     Pitch: 1
     Loop: 0
     Source: {fileID: 0}
   - Name: SubTheme4
     Clip: {fileID: 8300000, guid: 55ac9fb812eaaea40aaacc2c49a2b31e, type: 3}
-    Volume: 0.2
+    Volume: 0.4
     Pitch: 1
     Loop: 0
     Source: {fileID: 0}
   - Name: SubTheme5
     Clip: {fileID: 8300000, guid: c8af656781dd83844b13c9273357a29a, type: 3}
-    Volume: 0.2
+    Volume: 0.4
     Pitch: 1
     Loop: 0
     Source: {fileID: 0}
   - Name: SubTheme6
     Clip: {fileID: 8300000, guid: 37489bbdd7e1df641aa10c614abfd5b3, type: 3}
-    Volume: 0.6
+    Volume: 1
     Pitch: 1
     Loop: 0
     Source: {fileID: 0}
@@ -118,13 +118,13 @@ MonoBehaviour:
     Source: {fileID: 0}
   - Name: Dead
     Clip: {fileID: 8300000, guid: b99da9a57308d4ba1bee1cf1d9038376, type: 3}
-    Volume: 0.8
+    Volume: 1
     Pitch: 1
     Loop: 0
     Source: {fileID: 0}
   - Name: Drawn
     Clip: {fileID: 8300000, guid: 85a71a2be2bf9f84dae23cd4f9aa9658, type: 3}
-    Volume: 0.3
+    Volume: 0.6
     Pitch: 1
     Loop: 0
     Source: {fileID: 0}

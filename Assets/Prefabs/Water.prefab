@@ -219,8 +219,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CarPrefabName: Log
-  MinimumCarDuration: 20
-  MaximumCarDuration: 25
+  MinimumCarDuration: 18
+  MaximumCarDuration: 22
   MinimumSpawnTime: 5
   MaximumSpawnTime: 7
   LateMove: 0

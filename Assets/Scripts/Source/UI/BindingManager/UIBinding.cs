@@ -23,7 +23,10 @@ public class UIBinding : MonoBehaviour
     {
         _target = GetComponent(TargetType);
 
-        SetValue(Default);
+        if(!string.IsNullOrEmpty(Default))
+        {
+            SetValue(Default);
+        }
 
         _bindings = Bindings.GetInstance();
         _bindings.OnBindingUpdated += OnBindingChanged;
@@ -42,6 +45,7 @@ public class UIBinding : MonoBehaviour
         }
 
         object valueToSet = value;
+
         if(!string.IsNullOrEmpty(ConvertType))
         {
             Type type = Type.GetType(ConvertType);
@@ -56,13 +60,14 @@ public class UIBinding : MonoBehaviour
 
         try
         {
-            _target.GetType().GetProperty(Path).SetValue(_target, valueToSet);
+            _target.GetType().GetProperty(Path).SetValue(_target, ConvertValue(valueToSet));
         }
-        catch
+        catch (Exception ex)
         {
             if(Notifications)
             {
-                Debug.Log("Cannot access removed object: " + TargetType);
+                Debug.Log("Cannot access removed object or property: " + TargetType);
+                Debug.Log("Details: \r\n" + ex.Message + "\r\n" + ex.StackTrace);
             }
         }
     }
@@ -80,32 +85,40 @@ public class UIBinding : MonoBehaviour
         if(value != null)
         {
             // Convert value with Converter
-            if(!string.IsNullOrEmpty(Converter))
-            {
-                Type type = Type.GetType(Converter);
-                if(type == null)
-                {
-                    Debug.LogWarning(gameObject.name + " contains incorrect ConvertType: " + ConvertType);
-                    return;
-                }
-
-                object converter = Activator.CreateInstance(type);
-                if(converter == null)
-                {
-                    Debug.LogWarning(gameObject.name + " contains incorrect Converter: " + Converter);
-                    return;
-                }
-
-                MethodInfo method = type.GetMethod("Convert");
-                value = method.Invoke(converter, new object[] { value });
-            }
 
             SetValue(value);
         }
         else
         {
-            SetValue(Default);
+            if(!string.IsNullOrEmpty(Default))
+            {
+                SetValue(Default);
+            }
         }
+    }
+
+    private object ConvertValue(object value)
+    {
+        if(!string.IsNullOrEmpty(Converter))
+        {
+            Type type = Type.GetType(Converter);
+            if(type == null)
+            {
+                Debug.LogWarning(gameObject.name + " contains incorrect ConvertType: " + ConvertType);
+                return value;
+            }
+
+            object converter = Activator.CreateInstance(type);
+            if(converter == null)
+            {
+                Debug.LogWarning(gameObject.name + " contains incorrect Converter: " + Converter);
+                return value;
+            }
+
+            MethodInfo method = type.GetMethod("Convert");
+            value = method.Invoke(converter, new object[] { value });
+        }
+        return value;
     }
 
 }

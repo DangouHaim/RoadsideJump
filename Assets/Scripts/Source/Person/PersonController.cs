@@ -199,6 +199,7 @@ public partial class PersonController : MonoBehaviour, IPersonController, IContr
             _service.UserModel.IsDead = true;
             _state = PersonState.Dead;
             GetComponent<InputController>().enabled = false;
+            GetComponent<SwipeDetector>().enabled = false;
             transform.Find("Skin").gameObject.SetActive(false);
             transform.Find("DeadBody").gameObject.SetActive(true);
         }
@@ -283,6 +284,7 @@ public partial class PersonController : MonoBehaviour, IPersonController, IContr
             {
                 AudioManager.Instance.Play("Drawn");
                 GetComponent<InputController>().enabled = false;
+                GetComponent<SwipeDetector>().enabled = false;
                 _state = PersonState.Drawn;
             }
         }

@@ -71,7 +71,7 @@ MonoBehaviour:
     Prefab: {fileID: 4923006003142934098, guid: bd53c88c31bcb624c90065f350f24dc5,
       type: 3}
   - Tag: Log
-    Size: 90
+    Size: 110
     Prefab: {fileID: 1592778045124061407, guid: eb23db63b0e12b845af96001be3f5c15,
       type: 3}
   - Tag: Coin
