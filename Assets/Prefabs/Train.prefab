@@ -1243,8 +1243,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e599e1c65964245418dd55f317443a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NoiseDistance: 4
+  NoiseDistance: 5
   NoiseSound: Train
+  UseMultipleSound: 0
+  MultipleSound: 
 --- !u!1 &5034935132026445306
 GameObject:
   m_ObjectHideFlags: 0

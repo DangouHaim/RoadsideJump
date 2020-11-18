@@ -134,3 +134,9 @@ MonoBehaviour:
     Pitch: 1
     Loop: 0
     Source: {fileID: 0}
+  - Name: Car
+    Clip: {fileID: 8300000, guid: d491adf9e467772479e13850c1acc0f9, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}

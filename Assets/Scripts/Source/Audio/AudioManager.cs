@@ -34,6 +34,13 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource Play(string name)
     {
+        AudioSource source = Find(name);
+        source.Play();
+        return source;
+    }
+
+    public AudioSource Find(string name)
+    {
         IEnumerable<Sound> results = from x in Sounds
             where x.Name == name
             select x;
@@ -46,7 +53,6 @@ public class AudioManager : MonoBehaviour
             return null;
         }
 
-        sound.Source.Play();
         return sound.Source;
     }
 }

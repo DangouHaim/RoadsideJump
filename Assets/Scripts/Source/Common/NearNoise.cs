@@ -10,11 +10,6 @@ public class NearNoise : MonoBehaviour, IPoolable
     private bool _played = false;
     private GameObject _player;
 
-    public void OnSpawn()
-    {
-        _played = false;
-    }
-
     void Start()
     {
         _played = false;
@@ -22,16 +17,21 @@ public class NearNoise : MonoBehaviour, IPoolable
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         MakeNoise();
     }
 
+    public void OnSpawn()
+    {
+        _played = false;
+    }
+
     private void MakeNoise()
     {
-        Vector3 playerPosition = _player.transform.position;
+        AudioSource noise = AudioManager.Instance.Find(NoiseSound);
 
-        if(Vector3.Distance(transform.position, playerPosition) <= NoiseDistance)
+        if(Distance() <= NoiseDistance)
         {
             if(_played)
             {
@@ -39,7 +39,14 @@ public class NearNoise : MonoBehaviour, IPoolable
             }
             _played = true;
             
-            AudioManager.Instance.Play(NoiseSound);
+            noise.Play();
         }
+    }
+
+    private float Distance()
+    {
+        Vector3 playerPosition = _player.transform.position;
+        float distance = Vector3.Distance(transform.position, playerPosition);
+        return distance;
     }
 }

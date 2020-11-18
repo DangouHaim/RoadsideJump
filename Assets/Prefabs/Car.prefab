@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 777591028921217321}
   - component: {fileID: -7907067175877325916}
   - component: {fileID: 3092742426074443626}
+  - component: {fileID: -638474104554071491}
   m_Layer: 0
   m_Name: Car
   m_TagString: Enemy
@@ -72,7 +73,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f180fbe23a4e1dc42992164ec7af0a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StoppingFactor: 10
 --- !u!54 &3092742426074443626
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -89,6 +89,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-638474104554071491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4405666398668072021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e599e1c65964245418dd55f317443a27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NoiseDistance: 3
+  NoiseSound: Car
 --- !u!1 &7237309241592120849
 GameObject:
   m_ObjectHideFlags: 0

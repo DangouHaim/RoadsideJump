@@ -5,6 +5,7 @@ using UnityEngine;
 public class BackgroundAudio : MonoBehaviour
 {
     public float Interval = 10;
+    public float VolumeIncreaseDuraion = 0.05f;
     public string[] Sounds;
 
     private static BackgroundAudio _instance;
@@ -41,10 +42,27 @@ public class BackgroundAudio : MonoBehaviour
             foreach(string s in Sounds)
             {
                 AudioSource source = AudioManager.Instance.Play(s);
+                
+                if(s != Sounds[0])
+                {
+                    yield return IncreaseVolume(source);
+                }
 
                 yield return new WaitWhile( () => { return source.isPlaying; } );
                 yield return new WaitForSeconds(Interval);
             }
+        }
+    }
+
+    private IEnumerator IncreaseVolume(AudioSource source)
+    {
+        float volumePercent = source.volume / 100f;
+        source.volume = 0;
+        
+        for(int i = 0; i < 100; i++)
+        {
+            source.volume += volumePercent;
+            yield return new WaitForSeconds(VolumeIncreaseDuraion);
         }
     }
 }
