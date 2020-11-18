@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Interval: 10
+  VolumeIncreaseDuraion: 0.05
   Sounds:
   - MainTheme
   - SubTheme1

@@ -78,24 +78,44 @@ public class InputController : MonoBehaviour, IInputController
 
     public void Up()
     {
+        if(_rotatable == null)
+        {
+            return;
+        }
+
         _rotatable.TurnForward();
         _person.OnInput();
     }
 
     public void Down()
     {
+        if(_rotatable == null)
+        {
+            return;
+        }
+
         _rotatable.TurnBackward();
         _person.OnInput();
     }
 
     public void Left()
     {
+        if(_rotatable == null)
+        {
+            return;
+        }
+
         _rotatable.TurnLeft();
         _person.OnInput();
     }
 
     public void Right()
     {
+        if(_rotatable == null)
+        {
+            return;
+        }
+
         _rotatable.TurnRight();
         _person.OnInput();
     }
