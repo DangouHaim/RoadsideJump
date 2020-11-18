@@ -33,5 +33,7 @@ You have to have at least `Unity 2019.3.5f1` installed on your OS
 You have to run build only on `real device`
 Camera settings depends on `device API` and does not apply at unity debug mode
 
+You also can just download LatestBuild.zip de fast deploy game on your device
+
 
 Original repository: [RoadsideJump](https://github.com/DangouHaim/RoadsideJump)
