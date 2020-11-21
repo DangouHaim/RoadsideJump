@@ -156,7 +156,7 @@ public partial class PersonController : MonoBehaviour, IPersonController, IContr
 
     void FixedUpdate()
     {
-        if(transform.parent != null && IsOverWater())
+        if(transform.parent != null && IsOverWater() && !_isDrawnSafe)
         {
             DrawnToDie();
         }
