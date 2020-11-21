@@ -156,6 +156,11 @@ public partial class PersonController : MonoBehaviour, IPersonController, IContr
 
     void FixedUpdate()
     {
+        if(transform.parent != null && IsOverWater())
+        {
+            DrawnToDie();
+        }
+        
         if(Mathf.Abs(transform.position.x) > DeathDistance)
         {
             Die();
@@ -277,17 +282,24 @@ public partial class PersonController : MonoBehaviour, IPersonController, IContr
 
     private void DrawnToDie()
     {
+        AudioManager.Instance.Play("Drawn");
+        GetComponent<InputController>().enabled = false;
+        GetComponent<SwipeDetector>().enabled = false;
+        _state = PersonState.Drawn;
+    }
+
+    private bool IsOverWater()
+    {
         RaycastHit hit;
         if(Physics.Raycast(transform.position + transform.up, -transform.up, out hit, 5))
         {
             if(hit.transform.tag == "Water")
             {
-                AudioManager.Instance.Play("Drawn");
-                GetComponent<InputController>().enabled = false;
-                GetComponent<SwipeDetector>().enabled = false;
-                _state = PersonState.Drawn;
+                return true;
             }
         }
+
+        return false;
     }
 
     void OnTriggerEnter(Collider collider)
@@ -306,7 +318,7 @@ public partial class PersonController : MonoBehaviour, IPersonController, IContr
         {
             Die();
         }
-        if(!_isDrawnSafe && collider.gameObject.tag == "Water")
+        if(!_isDrawnSafe && collider.gameObject.tag == "Water" && IsOverWater())
         {
             DrawnToDie();
         }
