@@ -1024,7 +1024,7 @@ MonoBehaviour:
   Path: isOn
   ConvertType: System.Boolean
   Converter: 
-  Default: False
+  Default: True
   Notifications: 0
 --- !u!1 &4411934256886730299
 GameObject:

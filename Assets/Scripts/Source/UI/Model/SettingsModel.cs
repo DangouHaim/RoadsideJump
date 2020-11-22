@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class SettingsModel : BindableBase
 {
-    private bool _useSound;
+    private bool _useSound = true;
     public bool UseSound
     {
         get
