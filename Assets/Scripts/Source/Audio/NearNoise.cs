@@ -15,8 +15,7 @@ public class NearNoise : MonoBehaviour, IPoolable
         _played = false;
         _player = GameObject.FindGameObjectWithTag("Player");
     }
-
-    // Update is called once per frame
+    
     void FixedUpdate()
     {
         MakeNoise();
@@ -39,7 +38,7 @@ public class NearNoise : MonoBehaviour, IPoolable
             }
             _played = true;
             
-            noise.Play();
+            noise.PlayOneShot(noise.clip);
         }
     }
 

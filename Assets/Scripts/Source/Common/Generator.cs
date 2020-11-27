@@ -13,6 +13,8 @@ public abstract class Generator : MonoBehaviour, IPoolable
 
     public event EventHandler<GenerationEventArgs> OnRegularGenerated = (s, e) => {};
     public event EventHandler<GenerationEventArgs> OnSpecificGenerated = (s, e) => {};
+
+    public Vector3 SpawnOffset = new Vector3(0, 1, 0);
     
     protected PoolManager pool;
     
@@ -75,7 +77,11 @@ public abstract class Generator : MonoBehaviour, IPoolable
                     continue;
                 }
 
-                Vector3 spawnVector = new Vector3((float)-i, transform.position.y + 1, transform.position.z);
+                Vector3 spawnVector = new Vector3(
+                    (float)-i + SpawnOffset.x,
+                    transform.position.y + SpawnOffset.y,
+                    transform.position.z + SpawnOffset.z
+                );
 
                 if(Vector3.Distance(player.transform.position, spawnVector) > 2) // Check if player far enought
                 {
